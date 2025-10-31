@@ -1,0 +1,53 @@
+---
+/**
+ * 安全措施特性卡片组件
+ *
+ * @description 展示安全措施特性，包括图标、标题和描述
+ * @example
+ * <SecurityFeature
+ *   title="数据安全"
+ *   description="我们采用银行级的AES-256加密技术..."
+ *   iconName="data-security"
+ * />
+ */
+
+interface Props {
+  /** 特性标题 */
+  title: string
+  /** 特性描述 */
+  description: string
+  /** 图标名称 */
+  iconName?: string
+}
+
+const { title, description, iconName } = Astro.props
+---
+
+<div class="flex w-full flex-col gap-2 md:gap-4 lg:gap-6">
+  <!-- 图标 -->
+  {
+    iconName && (
+      <div class="h-[42px] w-[42px] md:h-[54px] md:w-[54px] lg:h-[66px] lg:w-[66px]">
+        <div class="flex h-full w-full items-center justify-center rounded-lg bg-primary/10">
+          <slot name="icon">
+            <div class="h-6 w-6 rounded bg-primary/20 md:h-8 md:w-8 lg:h-10 lg:w-10" />
+          </slot>
+        </div>
+      </div>
+    )
+  }
+
+  <!-- 标题 -->
+  <h3
+    class="text-sm font-medium leading-tight text-[#f4f0ff] md:text-lg lg:text-[30px]"
+  >
+    {title}
+  </h3>
+
+  <!-- 描述 -->
+  <p
+    class="text-xs leading-relaxed text-[rgba(239,237,253,0.7)] md:text-sm lg:text-[18px]"
+  >
+    {description}
+  </p>
+</div>

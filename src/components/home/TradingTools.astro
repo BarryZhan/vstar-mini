@@ -1,0 +1,109 @@
+---
+import Button from '../Button.astro'
+
+// 工具特性数据
+const features = [
+  '高级图表分析工具',
+  '多种订单类型支持',
+  '实时市场数据推送',
+  '自定义技术指标',
+  '一键交易功能',
+  '风险管理工具',
+]
+---
+
+<section class="page-main">
+  <div
+    class="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16"
+  >
+    <!-- 左侧：3D 图形 -->
+    <div class="relative order-2 lg:order-1">
+      <!-- 3D 鼠标和图标占位 -->
+      <div
+        class="relative z-10 mx-auto aspect-square max-w-[280px] md:max-w-md"
+      >
+        <div class="flex h-full w-full items-center justify-center">
+          <!-- 黄色鼠标 -->
+          <div
+            class="absolute left-1/4 top-1/4 h-32 w-24 rotate-12 rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-2xl md:h-40 md:w-32 md:rounded-3xl"
+          >
+          </div>
+
+          <!-- 蓝色图标 -->
+          <div
+            class="absolute bottom-1/4 right-1/4 flex h-20 w-20 -rotate-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-blue-600 shadow-2xl md:h-28 md:w-28 md:rounded-2xl"
+          >
+            <svg
+              class="h-12 w-12 text-white md:h-16 md:w-16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 背景装饰 -->
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl"
+        >
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：文字内容 -->
+    <div class="order-1 lg:order-2">
+      <h2 class="md:text-heading-1 mb-4 text-[26px] md:mb-6 lg:mb-8">
+        专业交易工具
+      </h2>
+
+      <p
+        class="text-body-md md:text-body-lg mb-6 leading-relaxed text-dark/70 md:mb-8 lg:mb-10"
+      >
+        提供完整的专业交易工具套件，从图表分析到订单执行，
+        满足各类交易者的需求。强大的功能配合直观的界面，
+        让复杂的交易变得简单高效
+      </p>
+
+      <!-- 特性列表 -->
+      <div
+        class="mb-6 grid grid-cols-1 gap-2.5 md:mb-8 md:grid-cols-2 md:gap-3 lg:mb-10"
+      >
+        {
+          features.map((feature) => (
+            <div class="flex items-center gap-2.5 md:gap-3">
+              <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-primary/10 md:h-6 md:w-6">
+                <svg
+                  class="h-3.5 w-3.5 text-primary md:h-4 md:w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span class="text-body-sm md:text-body-md text-dark">
+                {feature}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+
+      <Button variant="primary" size="md"> 了解更多 </Button>
+    </div>
+  </div>
+</section>

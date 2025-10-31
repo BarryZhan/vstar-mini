@@ -1,0 +1,126 @@
+---
+/**
+ * 发展历程时间轴组件
+ *
+ * @description 展示公司发展的关键时间节点，使用曲线连接
+ */
+
+import TimelineNode from './TimelineNode.astro'
+
+const milestones = [
+  {
+    time: '2020.03',
+    title: 'VSTAR品牌正式创立',
+    position: 'bottom' as const,
+  },
+  {
+    time: '2021.06',
+    title: '获得塞浦路斯CySEC授权，深化欧盟市场布局',
+    position: 'top' as const,
+  },
+  {
+    time: '2022.09',
+    title: '全球员工数量突破300人，技术团队占比超过40%',
+    position: 'bottom' as const,
+  },
+  {
+    time: '2023.01',
+    title: '通过ISO/IEC 27001:2013信息安全管理体系认证',
+    position: 'top' as const,
+  },
+  {
+    time: '2024.05',
+    title: '收购澳大利亚VSTAR Finance Pty Ltd，获得ASIC AFSL 526187牌照',
+    position: 'bottom' as const,
+  },
+  {
+    time: '2024.10',
+    title: '荣获"最佳金融科技创新奖"；全球办事处数量增至7个',
+    position: 'top' as const,
+  },
+  {
+    time: '2025.05',
+    title: 'VSTAR荣获欧盟MiCA框架下VASP牌照',
+    position: 'bottom' as const,
+  },
+  {
+    time: '2026',
+    title: 'VS金融集团在澳大利亚墨尔本成立',
+    position: 'top' as const,
+  },
+]
+---
+
+<!-- 发展历程区块 -->
+<section
+  class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-16 md:py-20 lg:py-28"
+>
+  <div class="content-container">
+    <!-- 标题 -->
+    <h2
+      class="mb-12 text-center text-[36px] font-bold leading-tight text-dark md:mb-16 md:text-[56px] lg:mb-20 lg:text-[72px]"
+    >
+      发展历程
+    </h2>
+
+    <!-- 时间轴容器 -->
+    <div class="relative mx-auto max-w-6xl">
+      <!-- SVG 曲线背景 -->
+      <div class="absolute inset-0 -z-10">
+        <svg
+          class="h-full w-full"
+          viewBox="0 0 1200 700"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <!-- 主曲线路径 -->
+          <path
+            d="M 50 350 Q 200 100, 350 200 T 650 400 T 950 250 T 1150 350"
+            stroke="rgba(38, 73, 255, 0.2)"
+            stroke-width="3"
+            fill="none"
+            stroke-dasharray="8 8"></path>
+        </svg>
+      </div>
+
+      <!-- 时间轴节点网格 -->
+      <div
+        class="relative grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-6"
+      >
+        {
+          milestones.map((milestone, index) => (
+            <div class="flex justify-center">
+              <div
+                class={`w-full max-w-[300px] md:max-w-[260px] ${
+                  milestone.position === 'top'
+                    ? 'flex flex-col-reverse lg:flex-col-reverse'
+                    : 'flex flex-col lg:flex-col'
+                }`}
+              >
+                <div class="mb-5 rounded-lg bg-white p-4 text-center shadow-md transition-shadow hover:shadow-lg md:rounded-xl md:p-5 lg:mb-7 lg:p-6">
+                  <p class="text-[13px] leading-relaxed text-dark/85 md:text-[14px] lg:text-[15px]">
+                    {milestone.title}
+                  </p>
+                </div>
+
+                <div class="mb-5 flex justify-center lg:mb-7">
+                  <div class="relative">
+                    <div class="h-4 w-4 rounded-full bg-primary shadow-lg ring-4 ring-white md:h-5 md:w-5" />
+                    {index < milestones.length - 1 && (
+                      <div class="absolute left-1/2 top-full hidden h-12 w-0.5 -translate-x-1/2 bg-gradient-to-b from-primary/30 to-transparent lg:block" />
+                    )}
+                  </div>
+                </div>
+
+                <div class="mb-5 text-center text-[16px] font-bold text-primary md:text-[18px] lg:mb-7 lg:text-[21px]">
+                  {milestone.time}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

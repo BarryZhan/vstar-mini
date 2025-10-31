@@ -1,0 +1,47 @@
+---
+/**
+ * 时间轴节点组件
+ *
+ * @description 展示单个时间节点，包含时间、标题和描述
+ */
+
+interface Props {
+  /** 时间标记 */
+  time: string
+  /** 事件标题 */
+  title: string
+  /** 节点位置：top（上方）或 bottom（下方） */
+  position: 'top' | 'bottom'
+}
+
+const { time, title, position } = Astro.props
+---
+
+<div class={`timeline-node relative ${position === 'top' ? 'mb-20' : 'mt-20'}`}>
+  <!-- 时间节点圆圈 -->
+  <div
+    class="absolute left-0 top-0 h-5 w-5 rounded-full bg-primary ring-4 ring-white"
+  >
+  </div>
+
+  <!-- 内容卡片 -->
+  <div class={`ml-8 ${position === 'top' ? '-translate-y-full pb-8' : 'pt-8'}`}>
+    <!-- 时间标签 -->
+    <div
+      class="mb-3 text-[18px] font-bold text-primary md:text-[20px] lg:text-[24px]"
+    >
+      {time}
+    </div>
+
+    <!-- 事件标题 -->
+    <div
+      class="max-w-[200px] rounded-lg bg-white p-4 shadow-md lg:max-w-[240px]"
+    >
+      <p
+        class="text-[14px] leading-relaxed text-dark md:text-[15px] lg:text-[16px]"
+      >
+        {title}
+      </p>
+    </div>
+  </div>
+</div>

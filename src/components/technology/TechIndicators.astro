@@ -1,0 +1,42 @@
+---
+import StatCard from '../StatCard.astro'
+import { Image } from 'astro:assets'
+import technologyImg from '../../assets/technology-img.png'
+
+// 技术指标数据
+const stats = [
+  {
+    icon: 'calendar',
+    label: '平均正常运行时间（12个月内）',
+    value: '99.95%',
+  },
+  {
+    icon: 'percent',
+    label: '数据吞吐量',
+    value: '88.8%',
+  },
+  {
+    icon: 'chart',
+    label: '算力资源容量',
+    value: '10,000+ TPS',
+  },
+]
+---
+
+<section
+  class="-mx-4 mt-12 rounded-[30px] bg-gradient-to-r from-dark via-dark-900 to-dark px-4 py-10 md:-mx-6 md:mt-20 md:rounded-[50px] md:px-6 md:py-16 lg:-mx-8 lg:mt-28 lg:rounded-[60px] lg:px-8 lg:py-24"
+>
+  <h2 class="section-title !text-white">技术指标</h2>
+
+  <!-- 统计卡片与图片 -->
+  <div
+    class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-10"
+  >
+    {stats.map((stat) => <StatCard {...stat} />)}
+
+    <!-- 视觉图片 -->
+    <div class="-mx-4">
+      <Image src={technologyImg} alt="" class="h-full w-full object-contain" />
+    </div>
+  </div>
+</section>

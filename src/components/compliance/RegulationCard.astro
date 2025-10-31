@@ -1,0 +1,79 @@
+---
+/**
+ * 监管卡片组件
+ *
+ * @description 展示监管机构信息，包括标志、标题、状态标签和描述
+ * @example
+ * <RegulationCard
+ *   title="澳大利亚证券与投资委员会(ASIC)监管"
+ *   status="已获授权监管"
+ *   description="澳大利亚: VSTAR Finance Pty Ltd (AFSL 526187) 受澳大利亚证券与投资委员会(ASIC)监管..."
+ *   logo="/path/to/logo.png"
+ * />
+ */
+
+interface Props {
+  /** 卡片标题 */
+  title: string
+  /** 监管状态 */
+  status: string
+  /** 描述文字 */
+  description: string
+  /** 监管机构标志图片路径 */
+  logo?: string
+  /** 标志的alt文字 */
+  logoAlt?: string
+}
+
+const {
+  title,
+  status,
+  description,
+  logo,
+  logoAlt = '监管机构标志',
+} = Astro.props
+---
+
+<div
+  class="rounded-card relative flex h-full flex-col bg-light-bg p-6 md:p-8 lg:rounded-[40px] lg:p-12"
+>
+  <!-- 监管机构标志 -->
+  {
+    logo && (
+      <div class="mb-4 md:mb-6 lg:mb-8">
+        <div class="flex h-[67px] w-[67px] items-center justify-center md:h-[90px] md:w-[90px] lg:h-[110px] lg:w-[110px]">
+          <img
+            src={logo}
+            alt={logoAlt}
+            class="h-full w-full object-contain mix-blend-multiply"
+          />
+        </div>
+      </div>
+    )
+  }
+
+  <!-- 状态标签 -->
+  <div class="mb-4 md:mb-6 lg:mb-8">
+    <div
+      class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-[#f0f5fe] px-6 py-2 md:px-7 lg:px-8 lg:py-2.5"
+    >
+      <span
+        class="whitespace-nowrap text-xs font-medium text-primary md:text-sm lg:text-[18px]"
+      >
+        {status}
+      </span>
+    </div>
+  </div>
+
+  <!-- 卡片标题 -->
+  <h3
+    class="mb-4 text-[18px] font-black leading-normal text-black md:mb-6 md:text-[24px] lg:mb-8 lg:text-[32px]"
+  >
+    {title}
+  </h3>
+
+  <!-- 描述内容 -->
+  <div class="text-xs leading-relaxed text-black md:text-sm lg:text-xl">
+    <p set:html={description} />
+  </div>
+</div>

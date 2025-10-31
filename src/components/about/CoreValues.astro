@@ -1,0 +1,62 @@
+---
+/**
+ * 核心价值观区块组件
+ *
+ * @description 展示公司的四大核心价值观
+ */
+
+import ValueCard from './ValueCard.astro'
+
+const values = [
+  {
+    title: '持续创新',
+    description:
+      '年收入的30%投入研发，并于2023年成功推出自主研发的VSTAR数据聚合器。',
+    layout: 'left-image' as const,
+    image: '/src/assets/technology-img.png', // 这里需要替换为实际的图片路径
+  },
+  {
+    title: '极致效率',
+    description: '持续优化全球网络架构，东京数据中心的网络延迟率业内领先。',
+    layout: 'right-image' as const,
+    image: '/src/assets/technology-img.png', // 这里需要替换为实际的图片路径
+  },
+  {
+    title: '透明运营',
+    description: '坚持公开、透明的运营原则，积极与用户沟通。',
+    layout: 'text-only' as const,
+  },
+  {
+    title: '用户至上',
+    description:
+      '我们建立7×24小时多语种技术支持团队，2024年用户满意度调研得分达98.6%。',
+    layout: 'text-only' as const,
+  },
+]
+---
+
+<!-- 核心价值观区块 -->
+<section class="bg-white py-16 md:py-20 lg:py-28">
+  <div class="content-container">
+    <!-- 标题 -->
+    <h2
+      class="mb-10 text-[36px] font-bold leading-tight text-dark md:mb-12 md:text-[48px] lg:mb-16 lg:text-[60px]"
+    >
+      核心价值观
+    </h2>
+
+    <!-- 价值观卡片网格 -->
+    <div class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-2 lg:gap-7">
+      {
+        values.map((value) => (
+          <ValueCard
+            title={value.title}
+            description={value.description}
+            layout={value.layout}
+            image={value.image}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

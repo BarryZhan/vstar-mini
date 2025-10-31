@@ -1,0 +1,44 @@
+---
+import ContactCard from '../ContactCard.astro'
+
+// 联系卡片数据
+const contactCards = [
+  {
+    title: '媒体问询',
+    email: 'media@vstar.com',
+    icon: 'media' as const,
+  },
+  {
+    title: '合作伙伴',
+    email: 'partnership@vstar.com',
+    icon: 'partner' as const,
+  },
+  {
+    title: '一般问询',
+    email: 'info@vstar.com',
+    icon: 'general' as const,
+  },
+]
+---
+
+<section class="spacing-section">
+  <h2 class="section-title">联系方式</h2>
+
+  <!-- 说明文字 -->
+  <div class="spacing-block max-w-4xl">
+    <h3 class="md:text-heading-2 mb-3 text-[20px] md:mb-4 lg:mb-6">
+      尊敬的访客，您好！
+    </h3>
+    <p class="text-body-sm md:text-body-md leading-relaxed">
+      本网站为品牌展示与技术介绍门户。请注意，我们在此不提供任何与投资理财相关的咨询与服务。
+      如果您有任何关于品牌合作、媒体问询或其他事宜，请通过以下邮箱与我们联系。
+    </p>
+  </div>
+
+  <!-- 联系卡片 - PC端三列布局 -->
+  <div
+    class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8"
+  >
+    {contactCards.map((card) => <ContactCard {...card} />)}
+  </div>
+</section>

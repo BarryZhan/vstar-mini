@@ -1,0 +1,102 @@
+---
+import Button from '../Button.astro'
+---
+
+<section class="page-main">
+  <div
+    class="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16"
+  >
+    <!-- 左侧：产品信息 -->
+    <div class="order-2 lg:order-1">
+      <!-- 标签 -->
+      <div class="mb-3 inline-block md:mb-4">
+        <span
+          class="text-body-xs md:text-body-sm rounded-full bg-primary/10 px-3 py-1.5 font-medium text-primary md:px-4 md:py-2"
+        >
+          VS TRADER
+        </span>
+      </div>
+
+      <!-- 标题 -->
+      <h2 class="md:text-heading-1 mb-4 text-[28px] md:mb-6 lg:mb-8">
+        专业交易平台
+      </h2>
+
+      <!-- 描述 -->
+      <p
+        class="text-body-md md:text-body-lg mb-4 leading-relaxed text-dark/70 md:mb-6 lg:mb-8"
+      >
+        为专业交易者打造的全功能交易平台，提供先进的图表分析工具、
+        快速的订单执行和全面的市场数据。无论您是日内交易者还是长线投资者， VS
+        TRADER 都能满足您的需求。
+      </p>
+
+      <!-- 评分信息 -->
+      <div class="mb-6 flex items-center gap-4 md:mb-8 md:gap-6 lg:mb-10">
+        <div>
+          <div class="mb-1 flex items-center gap-2">
+            <div class="flex">
+              {
+                [...Array(5)].map(() => (
+                  <svg
+                    class="h-4 w-4 text-yellow-400 md:h-5 md:w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))
+              }
+            </div>
+            <span class="text-body-md md:text-body-lg font-semibold">4.8</span>
+          </div>
+          <p class="text-body-xs md:text-body-sm text-dark/60">
+            超过 50,000+ 用户评价
+          </p>
+        </div>
+      </div>
+
+      <!-- 按钮组 -->
+      <div class="flex flex-col gap-3 sm:flex-row md:gap-4">
+        <Button variant="primary" size="md"> 下载应用 </Button>
+        <Button variant="outline" size="md"> 了解更多 </Button>
+      </div>
+    </div>
+
+    <!-- 右侧：产品图片 -->
+    <div class="relative order-1 lg:order-2">
+      <div class="relative z-10">
+        <!-- 手机模型占位 -->
+        <div
+          class="mx-auto aspect-[9/16] max-w-[280px] rounded-[2.5rem] bg-gradient-to-br from-gray-900 to-gray-800 p-2 shadow-2xl md:max-w-sm md:rounded-[3rem] md:p-3"
+        >
+          <div
+            class="flex h-full w-full items-center justify-center rounded-[2rem] bg-gradient-to-br from-primary/20 to-blue-500/20 md:rounded-[2.5rem]"
+          >
+            <svg
+              class="h-16 w-16 text-white/20 md:h-20 md:w-20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 背景装饰 -->
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

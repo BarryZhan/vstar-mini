@@ -1,0 +1,82 @@
+---
+// 联系卡片组件
+interface Props {
+  title: string
+  email: string
+  icon: 'media' | 'partner' | 'general'
+}
+
+const { title, email, icon } = Astro.props
+
+const icons = {
+  // 钥匙图标 - 媒体问询（简洁线条风格）
+  media: `
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="64" height="64" rx="12" fill="black"/>
+<path d="M26 32C30.1421 32 33.5 28.6421 33.5 24.5C33.5 20.3579 30.1421 17 26 17C21.8579 17 18.5 20.3579 18.5 24.5C18.5 28.6421 21.8579 32 26 32Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+<path d="M33.5005 25.4023C33.5113 25.4131 37.0427 29.854 44.0947 38.725C44.3427 39.0231 44.3227 39.4609 44.0485 39.7351L40.9859 42.7978C40.7118 43.0719 40.2739 43.0919 39.9759 42.844L27.3672 32.0008" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M33.8535 32.3516L35.9748 34.4729" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.75 47.0664C28.1875 45.1926 29.9351 44.2557 31.993 44.2557C35.0797 44.2557 38.7222 48.1338 41.8297 47.6001C44.9372 47.0664 45.8266 44.0016 43.9138 42.3047" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+  `,
+  // 菱形握手图标 - 合作伙伴（简洁线条风格）
+  partner: `
+    <path d="M12 3L6 9L12 15L18 9L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M9 12L6 15L9 18L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M15 12L18 15L15 18L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  `,
+  // 两个人图标 - 一般问询（简洁线条风格）
+  general: `
+    <circle cx="9" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    <circle cx="15" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    <path d="M5 19V17C5 15.3 6.8 14 9 14C11.2 14 13 15.3 13 17V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <path d="M11 19V17C11 15.3 12.8 14 15 14C17.2 14 19 15.3 19 17V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  `,
+}
+---
+
+<div
+  class="rounded-card group flex h-full flex-col bg-light-bg p-6 transition-all hover:shadow-xl md:p-8 lg:p-10"
+>
+  <div class="flex flex-1 flex-col gap-6 md:gap-8">
+    <!-- 图标 -->
+    <div
+      class="h-12 w-12 text-white transition-all group-hover:scale-110 md:h-14 md:w-14 lg:h-16 lg:w-16"
+    >
+      <Fragment set:html={icons[icon]} />
+    </div>
+
+    <!-- 内容 -->
+    <div class="flex flex-1 flex-col justify-between">
+      <div>
+        <h4 class="card-title">
+          {title}
+        </h4>
+        <p class="text-body-lg mb-6 md:mb-8 lg:mb-10">
+          {email}
+        </p>
+      </div>
+
+      <!-- 发送邮件链接 -->
+      <a
+        href={`mailto:${email}`}
+        class="text-link group/link inline-flex items-center gap-2 text-primary transition-all hover:gap-4"
+      >
+        发送邮件
+        <svg
+          class="h-4 w-4 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 md:h-5 md:w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            d="M7 17L17 7M17 7H9M17 7V15"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

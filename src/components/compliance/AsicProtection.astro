@@ -1,0 +1,53 @@
+---
+/**
+ * ASIC保障措施卡片组件
+ *
+ * @description 展示ASIC如何保障客户的各项措施
+ * @example
+ * <AsicProtection
+ *   title="客户资金隔离"
+ *   description="ASIC要求将客户资金与公司的运营资金分开存放..."
+ *   iconBgColor="bg-primary"
+ * />
+ */
+
+interface Props {
+  /** 保障措施标题 */
+  title: string
+  /** 保障措施描述 */
+  description: string
+  /** 图标背景颜色 */
+  iconBgColor?: string
+}
+
+const { title, description, iconBgColor = 'bg-primary' } = Astro.props
+---
+
+<div
+  class="rounded-card flex h-full flex-col bg-light-bg p-6 md:p-8 lg:rounded-[32px] lg:p-10"
+>
+  <!-- 图标 -->
+  <div class="mb-4 md:mb-6 lg:mb-8">
+    <div
+      class={`${iconBgColor} rounded-[40px] md:rounded-[54px] lg:rounded-[72px] w-[40px] h-[40px] md:w-[54px] md:h-[54px] lg:w-[70px] lg:h-[70px] flex items-center justify-center overflow-hidden`}
+    >
+      <slot name="icon">
+        <!-- 默认图标占位 -->
+        <div class="h-5 w-5 rounded bg-white/20 md:h-7 md:w-7 lg:h-8 lg:w-8">
+        </div>
+      </slot>
+    </div>
+  </div>
+
+  <!-- 标题 -->
+  <h3
+    class="mb-3 text-[18px] font-normal leading-tight text-black md:mb-4 md:text-[28px] lg:mb-6 lg:text-[38px]"
+  >
+    {title}
+  </h3>
+
+  <!-- 描述 -->
+  <p class="text-sm leading-relaxed text-black md:text-sm lg:text-base">
+    {description}
+  </p>
+</div>

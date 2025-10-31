@@ -1,0 +1,50 @@
+---
+/**
+ * 关于我们页面
+ *
+ * @description VSTAR 公司介绍页面，包含公司简介、核心价值观、发展历程、团队介绍等
+ */
+
+import Layout from '../layouts/Layout.astro'
+import Navigation from '../components/Navigation.astro'
+import Footer from '../components/Footer.astro'
+import AboutHero from '../components/about/AboutHero.astro'
+import CoreValues from '../components/about/CoreValues.astro'
+import Timeline from '../components/about/Timeline.astro'
+import ManagementTeam from '../components/about/ManagementTeam.astro'
+import Awards from '../components/about/Awards.astro'
+import Partners from '../components/about/Partners.astro'
+import PartnershipForm from '../components/about/PartnershipForm.astro'
+---
+
+<Layout
+  title="关于我们 - VSTAR"
+  description="VSTAR隶属于VS金融集团，是一家专注于金融科技领域的创新企业。了解我们的使命、愿景和发展历程。"
+>
+  <!-- 导航栏 -->
+  <Navigation transparent />
+
+  <!-- Hero 区块 -->
+  <AboutHero />
+
+  <!-- 核心价值观 -->
+  <CoreValues />
+
+  <!-- 发展历程 -->
+  <Timeline />
+
+  <!-- 管理团队 -->
+  <ManagementTeam />
+
+  <!-- 行业认可 -->
+  <Awards />
+
+  <!-- 合作伙伴 -->
+  <Partners />
+
+  <!-- 联盟合作计划 -->
+  <PartnershipForm />
+
+  <!-- 页脚 -->
+  <Footer />
+</Layout>

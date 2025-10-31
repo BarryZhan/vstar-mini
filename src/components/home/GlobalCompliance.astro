@@ -1,0 +1,97 @@
+---
+// 监管标识数据
+const regulators = [
+  { name: 'ASIC', country: '澳大利亚' },
+  { name: 'FCA', country: '英国' },
+  { name: 'CySEC', country: '塞浦路斯' },
+  { name: 'FSA', country: '日本' },
+]
+---
+
+<section class="page-main bg-light-bg/50">
+  <!-- 标题 -->
+  <h2 class="section-title mb-4 md:mb-6 lg:mb-8">荣获加认</h2>
+
+  <p
+    class="text-body-md md:text-body-lg mx-auto mb-8 max-w-3xl text-center text-dark/70 md:mb-12 lg:mb-16"
+  >
+    获得全球多个国家和地区金融监管机构的认可与授权，
+    为客户提供合规可靠的交易服务
+  </p>
+
+  <!-- 证书图片区域 -->
+  <div class="mx-auto mb-8 max-w-4xl md:mb-12 lg:mb-16">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
+      <!-- 证书占位图 -->
+      <div
+        class="md:rounded-card aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+      >
+        <div
+          class="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100"
+        >
+          <div class="text-center">
+            <svg
+              class="mx-auto mb-2 h-12 w-12 text-gray-300 md:mb-3 md:h-16 md:w-16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+              ></path>
+            </svg>
+            <p class="text-body-xs md:text-body-sm text-gray-400">监管证书</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="md:rounded-card aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+      >
+        <div
+          class="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100"
+        >
+          <div class="text-center">
+            <svg
+              class="mx-auto mb-2 h-12 w-12 text-gray-300 md:mb-3 md:h-16 md:w-16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+              ></path>
+            </svg>
+            <p class="text-body-xs md:text-body-sm text-gray-400">监管证书</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 监管标识 -->
+  <div class="mx-auto max-w-4xl">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 lg:gap-8">
+      {
+        regulators.map((regulator) => (
+          <div class="md:rounded-card rounded-lg bg-white p-4 text-center transition-shadow duration-300 hover:shadow-lg md:p-6 lg:p-8">
+            <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 md:mb-4 md:h-16 md:w-16 lg:h-20 lg:w-20">
+              <span class="lg:text-heading-3 text-[16px] font-bold text-primary md:text-[18px]">
+                {regulator.name}
+              </span>
+            </div>
+            <p class="text-body-xs md:text-body-sm text-dark/60">
+              {regulator.country}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

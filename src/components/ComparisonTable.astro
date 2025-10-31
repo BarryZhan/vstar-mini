@@ -1,0 +1,83 @@
+---
+export interface Feature {
+  name: string
+  values: {
+    vsTrader: string
+    proTrader: string
+    webTrader: string
+  }
+}
+
+export interface Props {
+  features: Feature[]
+}
+
+const { features } = Astro.props
+---
+
+<!-- 横向表格布局 -->
+<div class="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
+  <div class="min-w-[600px] md:min-w-0">
+    <!-- 表头 -->
+    <div
+      class="mb-4 grid grid-cols-[auto,1fr,1fr,1fr] gap-3 md:mb-5 md:gap-4 lg:mb-6 lg:gap-5"
+    >
+      <!-- 空白列 -->
+      <div class="w-24 md:w-28 lg:w-32"></div>
+
+      <!-- VS TRADER -->
+      <div
+        class="rounded-card bg-light-bg p-3 text-center text-dark md:p-4 lg:p-5"
+      >
+        <h4 class="text-body-md md:text-heading-4 font-semibold leading-tight">
+          VS TRADER
+        </h4>
+      </div>
+
+      <!-- PRO TRADER (高亮) -->
+      <div
+        class="rounded-card bg-primary p-3 text-center text-white ring-2 ring-primary ring-offset-2 md:p-4 md:ring-offset-4 lg:p-5"
+      >
+        <h4 class="text-body-md md:text-heading-4 font-semibold leading-tight">
+          PRO TRADER
+        </h4>
+        <span class="text-body-xs mt-1 block opacity-90">推荐</span>
+      </div>
+
+      <!-- WEB TRADER -->
+      <div
+        class="rounded-card bg-light-bg p-3 text-center text-dark md:p-4 lg:p-5"
+      >
+        <h4 class="text-body-md md:text-heading-4 font-semibold leading-tight">
+          WEB TRADER
+        </h4>
+      </div>
+    </div>
+
+    <!-- 表格内容行 -->
+    <div class="space-y-2 md:space-y-3">
+      {
+        features.map((feature, index) => (
+          <div
+            class={`grid grid-cols-[auto,1fr,1fr,1fr] items-center gap-3 md:gap-4 lg:gap-5 ${
+              index % 2 === 0 ? '' : ''
+            }`}
+          >
+            <div class="text-body-sm md:text-body-md w-24 pr-2 font-medium text-dark md:w-28 lg:w-32">
+              {feature.name}
+            </div>
+            {[
+              feature.values.vsTrader,
+              feature.values.proTrader,
+              feature.values.webTrader,
+            ].map((value, index) => (
+              <div class="text-body-sm md:text-body-md h-12 bg-white text-center text-dark">
+                {value}
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

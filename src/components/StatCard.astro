@@ -1,0 +1,68 @@
+---
+export interface Props {
+  icon: string
+  label: string
+  value: string
+}
+
+const { icon, label, value } = Astro.props
+---
+
+<div class="p-4 text-center md:p-0">
+  <!-- 图标 -->
+  <div class="mb-2 flex justify-center md:mb-3 lg:mb-4">
+    <div
+      class="flex h-8 w-8 items-center justify-center text-primary md:h-10 md:w-10 lg:h-12 lg:w-12"
+    >
+      <svg
+        class="h-full w-full"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        {
+          icon === 'calendar' && (
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          )
+        }
+        {
+          icon === 'percent' && (
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M9 9l6 6m-6 0l6-6m-8 3a2 2 0 110-4 2 2 0 010 4zm10 10a2 2 0 110-4 2 2 0 010 4z"
+            />
+          )
+        }
+        {
+          icon === 'chart' && (
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            />
+          )
+        }
+      </svg>
+    </div>
+  </div>
+
+  <!-- 标签 -->
+  <div
+    class="text-body-sm md:text-body-md mb-1 leading-tight text-white/70 md:mb-2 lg:mb-3"
+  >
+    {label}
+  </div>
+
+  <!-- 数值 -->
+  <div class="text-heading-2 font-semibold text-white">
+    {value}
+  </div>
+</div>

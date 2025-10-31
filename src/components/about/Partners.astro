@@ -1,0 +1,60 @@
+---
+/**
+ * 合作伙伴区块组件
+ *
+ * @description 展示合作伙伴的 Logo
+ */
+
+// 合作伙伴 Logo 列表 - 这里需要替换为实际的 Logo 图片路径
+const partners = [
+  { name: 'Google Cloud', logo: '' },
+  { name: 'MongoDB', logo: '' },
+  { name: 'Supabase', logo: '' },
+  { name: 'Vercel', logo: '' },
+  { name: 'Partner 5', logo: '' },
+  { name: 'Partner 6', logo: '' },
+]
+---
+
+<!-- 合作伙伴区块 -->
+<section class="bg-gradient-to-b from-white to-gray-50 py-16 md:py-20 lg:py-28">
+  <div class="content-container">
+    <!-- 标题 -->
+    <h2
+      class="mb-6 text-center text-[36px] font-bold leading-tight text-dark md:mb-8 md:text-[56px] lg:mb-10 lg:text-[72px]"
+    >
+      合作伙伴
+    </h2>
+
+    <!-- 副标题 -->
+    <p
+      class="mx-auto mb-12 max-w-3xl text-center text-[15px] leading-relaxed text-dark/70 md:mb-14 md:text-[17px] lg:mb-16 lg:text-[19px]"
+    >
+      我们与全球顶尖的技术与服务提供商合作，共同构建可靠的技术生态
+    </p>
+
+    <!-- Logo 网格 -->
+    <div
+      class="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 lg:grid-cols-6"
+    >
+      {
+        partners.map((partner) => (
+          <div class="group flex items-center justify-center rounded-xl bg-white p-6 shadow-sm transition-all hover:shadow-md lg:p-7">
+            {partner.logo ? (
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                class="h-10 w-auto object-contain grayscale transition-all group-hover:grayscale-0 md:h-12 lg:h-14"
+                loading="lazy"
+              />
+            ) : (
+              <div class="flex h-10 w-full items-center justify-center md:h-12 lg:h-14">
+                <div class="h-7 w-20 rounded bg-gradient-to-r from-gray-200 to-gray-300" />
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

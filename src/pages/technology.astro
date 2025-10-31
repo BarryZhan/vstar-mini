@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Navigation from '../components/Navigation.astro'
+import Footer from '../components/Footer.astro'
+import TechnologyHero from '../components/technology/TechnologyHero.astro'
+import GlobalNetwork from '../components/technology/GlobalNetwork.astro'
+import TechIndicators from '../components/technology/TechIndicators.astro'
+import PlatformComparison from '../components/technology/PlatformComparison.astro'
+import SecuritySystem from '../components/technology/SecuritySystem.astro'
+---
+
+<Layout
+  title="技术展望 - VS TRADER"
+  description="探索我们的全球技术网络与先进的交易平台技术"
+>
+  <Navigation transparent />
+
+  <TechnologyHero />
+
+  <!-- 主要内容 -->
+  <main class="page-main">
+    <GlobalNetwork />
+    <TechIndicators />
+    <PlatformComparison />
+    <SecuritySystem />
+  </main>
+
+  <Footer />
+</Layout>

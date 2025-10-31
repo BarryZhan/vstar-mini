@@ -1,0 +1,64 @@
+---
+import Logo from '../assets/logo.svg'
+import HeaderMenu from '../assets/header-menu.svg'
+// 导航栏组件
+interface Props {
+  transparent?: boolean
+}
+
+const { transparent = false } = Astro.props
+
+const menuItems = [
+  { label: '首页', href: '/' },
+  { label: '关于我们', href: '/about' },
+  { label: '全球合规', href: '/compliance' },
+  { label: '技术实力', href: '/technology' },
+  { label: '联系我们', href: '/contact' },
+]
+---
+
+<nav
+  class={`flex items-center justify-between py-4 px-6 md:px-12 lg:px-20 relative ${transparent ? 'backdrop-blur-sm' : ''}`}
+>
+  <!-- Logo -->
+  <a
+    href="/"
+    class="z-10 flex items-center transition-opacity hover:opacity-80"
+  >
+    <Logo class="h-7 w-28 md:h-8 md:w-32 lg:h-9 lg:w-36" />
+  </a>
+
+  <!-- PC端导航菜单 -->
+  <div
+    class="absolute left-0 hidden w-full flex-1 items-center justify-center lg:flex"
+  >
+    <div class="flex h-20 items-center gap-12 rounded-full bg-white px-12 py-5">
+      {
+        menuItems.map((item) => (
+          <a
+            href={item.href}
+            class="whitespace-nowrap text-xl font-medium text-black transition-colors hover:text-primary"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- 移动端菜单按钮 -->
+  <HeaderMenu
+    class="z-10 flex size-6 flex-col transition-opacity hover:opacity-80 lg:hidden"
+    aria-label="Menu"
+    id="menu-button"
+  />
+</nav>
+
+<script>
+  // 移动端菜单切换逻辑
+  const menuButton = document.getElementById('menu-button')
+  menuButton?.addEventListener('click', () => {
+    console.log('Menu clicked')
+    // TODO: 实现移动端菜单展开逻辑
+  })
+</script>

@@ -1,0 +1,51 @@
+---
+import AdvantageCard from './AdvantageCard.astro'
+
+// 优势数据
+const advantages = [
+  {
+    icon: 'award',
+    title: '技术领先的专利',
+    description: '拥有多项核心技术专利，为交易者提供独特的技术优势和创新体验',
+  },
+  {
+    icon: 'chart',
+    title: '顶级流动性提供',
+    description: '连接全球顶级流动性提供商，确保最优价格执行和深度市场流动性',
+  },
+  {
+    icon: 'shield',
+    title: '风险隔离保护保障',
+    description: '采用先进的风险管理系统，多层次保障客户资金安全，资金隔离存放',
+  },
+  {
+    icon: 'trophy',
+    title: '荣获多项行业大奖',
+    description:
+      '获得行业权威机构认可，多次荣获最佳交易平台、最佳技术创新等奖项',
+  },
+  {
+    icon: 'users',
+    title: '由专业团队打造',
+    description:
+      '核心团队来自顶级金融机构和科技公司，拥有丰富的行业经验和技术实力',
+  },
+  {
+    icon: 'lightbulb',
+    title: '提供独家交易策略',
+    description: '专业分析师团队提供独家市场洞察和交易策略，助您把握市场机遇',
+  },
+]
+---
+
+<section class="page-main bg-white">
+  <!-- 标题 -->
+  <h2 class="section-title mb-8 md:mb-12 lg:mb-16">全球优势</h2>
+
+  <!-- 优势卡片网格 -->
+  <div
+    class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8"
+  >
+    {advantages.map((advantage) => <AdvantageCard {...advantage} />)}
+  </div>
+</section>

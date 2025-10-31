@@ -1,0 +1,61 @@
+---
+import ComparisonTable from '../ComparisonTable.astro'
+
+// 平台对比数据 - 竖向布局
+const comparisonFeatures = [
+  {
+    name: '适合场景',
+    values: {
+      vsTrader: '移动交易',
+      proTrader: '高频/量化',
+      webTrader: '临时访问',
+    },
+  },
+  {
+    name: '高级图表',
+    values: {
+      vsTrader: '30+指标',
+      proTrader: '120+指标',
+      webTrader: '70+指标',
+    },
+  },
+  {
+    name: 'API支持',
+    values: {
+      vsTrader: 'REST API',
+      proTrader: 'MQL5',
+      webTrader: 'Socket',
+    },
+  },
+  {
+    name: '数据延迟',
+    values: {
+      vsTrader: '<100ms',
+      proTrader: '<80ms',
+      webTrader: '<150ms',
+    },
+  },
+  {
+    name: '特色功能',
+    values: {
+      vsTrader: '跟单社区',
+      proTrader: '策略回测',
+      webTrader: '协作白板',
+    },
+  },
+]
+---
+
+<section class="mt-12 md:mt-20 lg:mt-28">
+  <h2 class="section-title">平台对比矩阵</h2>
+
+  <!-- 说明文字 -->
+  <p
+    class="text-body-sm md:text-body-md spacing-block mx-auto -mt-4 max-w-4xl px-2 text-center leading-relaxed md:-mt-6"
+  >
+    我们在全球关键金融枢纽部署了多个高性能数据中心，包括香港、东京、伦敦和纽约，构建了低延迟、高冗余的全球私有网络。这一网络确保了我们的服务具备极高的可用性和稳定性，系统可用性达到99.99%。
+  </p>
+
+  <!-- 对比表格 -->
+  <ComparisonTable features={comparisonFeatures} />
+</section>

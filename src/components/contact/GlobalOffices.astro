@@ -1,0 +1,69 @@
+---
+// 办公室数据
+const offices = [
+  {
+    title: '全球总部（技术研发）',
+    location: '澳大利亚，墨尔本',
+    address:
+      'UNIT 1, 5-7 Compark Circuit, Mulgrave VIC 3170, Melbourne, Australia',
+    image:
+      'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800&h=800&fit=crop',
+    imageAlt: 'Melbourne Office',
+  },
+  {
+    title: '亚太办事处（技术支持）',
+    location: '中国，香港',
+    address: "New World Tower 16-18 Queen's Road Central, Central, Hong Kong",
+    image:
+      'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=800&fit=crop',
+    imageAlt: 'Hong Kong Office',
+  },
+  {
+    title: '欧洲办事处（合规与运营）',
+    location: '塞浦路斯，利马索尔',
+    address: "New World Tower 16-18 Queen's Road Central, Central, Hong Kong",
+    image:
+      'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&h=800&fit=crop',
+    imageAlt: 'Cyprus Office',
+  },
+]
+---
+
+<section class="mt-16 md:mt-20 lg:mt-28">
+  <h2 class="section-title">全球办公室</h2>
+
+  <div class="space-y-10 md:space-y-16 lg:space-y-28">
+    {
+      offices.map((office, index) => (
+        <div
+          class={`flex items-start gap-4 md:gap-6 lg:gap-8 ${
+            index % 2 === 0
+              ? 'flex-row lg:flex-row'
+              : 'flex-row lg:flex-row-reverse'
+          }`}
+        >
+          <div class="md:rounded-image h-[100px] w-[100px] shrink-0 overflow-hidden rounded-lg md:h-[180px] md:w-[180px] lg:h-[452px] lg:w-[452px]">
+            <img
+              src={office.image}
+              alt={office.imageAlt}
+              class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="flex-1 pt-1 md:pt-2">
+            <h3 class="lg:text-heading-4 mb-1 text-[16px] md:mb-2 md:text-[18px]">
+              {office.title}：
+            </h3>
+            <p class="text-body-sm md:text-body-md lg:text-body-lg mb-1.5 md:mb-2 lg:mb-4">
+              {office.location}
+            </p>
+            <p class="text-body-xs md:text-body-sm lg:text-address leading-relaxed text-dark/60">
+              {office.address}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

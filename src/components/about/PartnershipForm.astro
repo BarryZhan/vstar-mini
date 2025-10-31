@@ -1,0 +1,400 @@
+---
+/**
+ * 联盟合作计划区块组件
+ *
+ * @description 包含联盟合作表单和办公地址信息
+ */
+
+const offices = [
+  {
+    country: 'Australia',
+    address:
+      'UNIT 1, 5-7 Compark Circuit, Mulgrave VIC 3170, Melbourne, Australia',
+  },
+  {
+    country: 'Mauritius',
+    address:
+      'Suite 602, 6th Floor, Hennessy Tower, Pope Hennessy Street, Port Louis, Mauritius',
+  },
+]
+---
+
+<!-- 联盟合作计划区块 -->
+<section class="bg-white py-16 md:py-20 lg:py-28">
+  <div class="content-container">
+    <!-- 标题 -->
+    <h2
+      class="mb-12 text-center text-[36px] font-bold leading-tight text-dark md:mb-14 md:text-[50px] lg:mb-16 lg:text-[62px]"
+    >
+      联盟合作计划
+    </h2>
+
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+      <!-- 左侧：办公地址 -->
+      <div class="space-y-5 md:space-y-6">
+        {
+          offices.map((office) => (
+            <div class="rounded-lg border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-5 shadow-sm transition-all hover:shadow-md md:rounded-xl md:p-6 lg:p-7">
+              <div class="mb-4 flex items-center gap-3">
+                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                  <svg
+                    class="h-5 w-5 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-[17px] font-bold text-dark md:text-[19px] lg:text-[21px]">
+                  {office.country}
+                </h3>
+              </div>
+              <p class="pl-11 text-[13px] leading-relaxed text-dark/70 md:text-[14px] lg:text-[15px]">
+                {office.address}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- 右侧：联系表单 -->
+      <div
+        class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm lg:p-8"
+      >
+        <h3
+          class="mb-6 text-[24px] font-bold text-dark md:text-[28px] lg:text-[32px]"
+        >
+          联系我们
+        </h3>
+
+        <!-- 提示消息区域 -->
+        <div id="form-message" class="mb-4 hidden rounded-lg p-4" role="alert">
+        </div>
+
+        <form id="partnership-form" class="space-y-6">
+          <!-- 姓名 -->
+          <div>
+            <label
+              for="username"
+              class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+            >
+              姓名*
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              minlength="1"
+              maxlength="32"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              placeholder="请输入您的姓名（1-32字符）"
+            />
+            <p class="mt-1 hidden text-sm text-red-600" id="username-error"></p>
+          </div>
+
+          <!-- 邮箱和手机号 -->
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <!-- 邮箱 -->
+            <div>
+              <label
+                for="email"
+                class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+              >
+                邮箱*
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                minlength="1"
+                maxlength="64"
+                class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                placeholder="your@email.com"
+              />
+              <p class="mt-1 hidden text-sm text-red-600" id="email-error"></p>
+            </div>
+
+            <!-- 手机号码 -->
+            <div>
+              <label
+                for="phone"
+                class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+              >
+                手机号码
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                maxlength="32"
+                class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                placeholder="+86 138 0000 0000（选填）"
+              />
+              <p class="mt-1 hidden text-sm text-red-600" id="phone-error"></p>
+            </div>
+          </div>
+
+          <!-- 留言 -->
+          <div>
+            <label
+              for="content"
+              class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+            >
+              留言* <span class="text-sm text-gray-500">(10-2047字符)</span>
+            </label>
+            <textarea
+              id="content"
+              name="content"
+              required
+              minlength="10"
+              maxlength="2047"
+              rows="5"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              placeholder="请输入您的留言内容（10-2047字符）"></textarea>
+            <p class="mt-1 text-sm text-gray-500">
+              <span id="content-count">0</span> / 2047
+            </p>
+            <p class="mt-1 hidden text-sm text-red-600" id="content-error"></p>
+          </div>
+
+          <!-- 提交按钮 -->
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full rounded-lg bg-primary px-8 py-4 text-[16px] font-medium text-white transition-colors hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50 md:text-[18px]"
+          >
+            <span id="submit-text">提交</span>
+            <span id="submit-loading" class="hidden">提交中...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 接口请求类型定义
+  interface SuggestRequest {
+    username: string
+    email: string
+    phone: string
+    content: string
+    type: number
+  }
+
+  interface ApiResponse {
+    code: number
+    message: string
+    data?: any
+  }
+
+  // 表单元素
+  const form = document.getElementById('partnership-form') as HTMLFormElement
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement
+  const submitText = document.getElementById('submit-text') as HTMLSpanElement
+  const submitLoading = document.getElementById(
+    'submit-loading',
+  ) as HTMLSpanElement
+  const messageBox = document.getElementById('form-message') as HTMLDivElement
+
+  // 表单字段
+  const usernameInput = document.getElementById('username') as HTMLInputElement
+  const emailInput = document.getElementById('email') as HTMLInputElement
+  const phoneInput = document.getElementById('phone') as HTMLInputElement
+  const contentInput = document.getElementById('content') as HTMLTextAreaElement
+
+  // 错误提示元素
+  const usernameError = document.getElementById(
+    'username-error',
+  ) as HTMLParagraphElement
+  const emailError = document.getElementById(
+    'email-error',
+  ) as HTMLParagraphElement
+  const phoneError = document.getElementById(
+    'phone-error',
+  ) as HTMLParagraphElement
+  const contentError = document.getElementById(
+    'content-error',
+  ) as HTMLParagraphElement
+
+  // 字符计数
+  const contentCount = document.getElementById(
+    'content-count',
+  ) as HTMLSpanElement
+
+  // 更新留言字符计数
+  contentInput?.addEventListener('input', () => {
+    if (contentCount) {
+      contentCount.textContent = contentInput.value.length.toString()
+    }
+  })
+
+  // 显示错误消息
+  function showError(element: HTMLParagraphElement, message: string) {
+    element.textContent = message
+    element.classList.remove('hidden')
+  }
+
+  // 隐藏错误消息
+  function hideError(element: HTMLParagraphElement) {
+    element.textContent = ''
+    element.classList.add('hidden')
+  }
+
+  // 显示表单消息
+  function showMessage(message: string, type: 'success' | 'error') {
+    messageBox.textContent = message
+    messageBox.classList.remove(
+      'hidden',
+      'bg-green-100',
+      'text-green-800',
+      'bg-red-100',
+      'text-red-800',
+    )
+
+    if (type === 'success') {
+      messageBox.classList.add('bg-green-100', 'text-green-800')
+    } else {
+      messageBox.classList.add('bg-red-100', 'text-red-800')
+    }
+
+    // 3秒后自动隐藏
+    setTimeout(() => {
+      messageBox.classList.add('hidden')
+    }, 5000)
+  }
+
+  // 表单验证
+  function validateForm(): boolean {
+    let isValid = true
+
+    // 清除所有错误
+    hideError(usernameError)
+    hideError(emailError)
+    hideError(phoneError)
+    hideError(contentError)
+
+    // 验证姓名
+    const username = usernameInput.value.trim()
+    if (!username) {
+      showError(usernameError, '请输入姓名')
+      isValid = false
+    } else if (username.length < 1 || username.length > 32) {
+      showError(usernameError, '姓名长度应为1-32字符')
+      isValid = false
+    }
+
+    // 验证邮箱
+    const email = emailInput.value.trim()
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!email) {
+      showError(emailError, '请输入邮箱')
+      isValid = false
+    } else if (email.length < 1 || email.length > 64) {
+      showError(emailError, '邮箱长度应为1-64字符')
+      isValid = false
+    } else if (!emailRegex.test(email)) {
+      showError(emailError, '请输入有效的邮箱地址')
+      isValid = false
+    }
+
+    // 验证手机号（可选，但如果填写需要验证长度）
+    const phone = phoneInput.value.trim()
+    if (phone && (phone.length < 1 || phone.length > 32)) {
+      showError(phoneError, '手机号长度应为1-32字符')
+      isValid = false
+    }
+
+    // 验证留言
+    const content = contentInput.value.trim()
+    if (!content) {
+      showError(contentError, '请输入留言内容')
+      isValid = false
+    } else if (content.length < 10) {
+      showError(contentError, '留言内容至少需要10个字符')
+      isValid = false
+    } else if (content.length > 2047) {
+      showError(contentError, '留言内容不能超过2047个字符')
+      isValid = false
+    }
+
+    return isValid
+  }
+
+  // 提交表单
+  async function submitForm(data: SuggestRequest) {
+    try {
+      const response = await fetch('/v1/public/pc/suggest/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result: ApiResponse = await response.json()
+
+      if (response.ok && result.code === 0) {
+        // 成功
+        showMessage('提交成功！我们会尽快与您联系。', 'success')
+        form.reset()
+        if (contentCount) {
+          contentCount.textContent = '0'
+        }
+      } else {
+        // 失败
+        showMessage(result.message || '提交失败，请稍后重试', 'error')
+      }
+    } catch (error) {
+      console.error('提交错误:', error)
+      showMessage('网络错误，请检查您的网络连接后重试', 'error')
+    }
+  }
+
+  // 表单提交处理
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    // 验证表单
+    if (!validateForm()) {
+      return
+    }
+
+    // 禁用提交按钮
+    submitBtn.disabled = true
+    submitText.classList.add('hidden')
+    submitLoading.classList.remove('hidden')
+
+    // 准备数据
+    const formData: SuggestRequest = {
+      username: usernameInput.value.trim(),
+      email: emailInput.value.trim(),
+      phone: phoneInput.value.trim(),
+      content: contentInput.value.trim(),
+      type: 2, // 2: 代理申请
+    }
+
+    try {
+      await submitForm(formData)
+    } finally {
+      // 恢复提交按钮
+      submitBtn.disabled = false
+      submitText.classList.remove('hidden')
+      submitLoading.classList.add('hidden')
+    }
+  })
+</script>

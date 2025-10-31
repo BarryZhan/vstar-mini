@@ -1,0 +1,118 @@
+---
+/**
+ * 管理团队区块组件
+ *
+ * @description 展示公司核心管理团队成员
+ */
+
+import TeamMember from './TeamMember.astro'
+
+const teamMembers = [
+  {
+    name: 'Martin Luke',
+    position: '执行董事',
+    bio: '拥有超过23年的全球科技企业管理经验。在加入VSTAR之前，他曾担任多家跨国企业的首席技术官，主导了多项大型技术基础设施的构建与升级。在VSTAR，他主要负责全球技术战略的规划与实施。',
+    avatar: '', // 这里需要替换为实际的头像路径
+  },
+  {
+    name: 'Scott Maves',
+    position: '运营总监',
+    bio: '资深运营管理专家，在构建符合国际标准的合规体系方面拥有丰富的成功经验。他主导完成了VSTAR在全球多个地区的合规布局与落地，确保了公司全球运营的稳健与高效。',
+    avatar: '', // 这里需要替换为实际的头像路径
+  },
+]
+---
+
+<!-- 管理团队区块 -->
+<section
+  class="relative overflow-hidden bg-gradient-to-b from-dark via-dark-900 to-dark py-16 md:py-20 lg:py-28"
+>
+  <div class="content-container">
+    <!-- 英文标题 -->
+    <p
+      class="mb-3 text-center text-[20px] font-medium tracking-wider text-light-text/80 md:mb-4 md:text-[24px] lg:text-[28px]"
+    >
+      Management
+    </p>
+
+    <!-- 中文标题 -->
+    <h2
+      class="mb-12 text-center text-[36px] font-bold leading-tight text-white md:mb-16 md:text-[56px] lg:mb-20 lg:text-[72px]"
+    >
+      管理团队
+    </h2>
+
+    <!-- 团队成员网格 -->
+    <div
+      class="mb-16 grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12 lg:mb-20 lg:gap-20"
+    >
+      {
+        teamMembers.map((member) => (
+          <TeamMember
+            name={member.name}
+            position={member.position}
+            bio={member.bio}
+            avatar={member.avatar}
+          />
+        ))
+      }
+    </div>
+
+    <!-- 行业认可装饰区块 -->
+    <div
+      class="mx-auto max-w-5xl rounded-[18px] bg-white/5 p-10 backdrop-blur-sm md:rounded-[20px] lg:rounded-[22px] lg:p-14"
+    >
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+        <!-- 奖项图标装饰 -->
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div
+            class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 ring-4 ring-primary/10"
+          >
+            <svg
+              class="h-8 w-8 text-primary/70"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-center text-xs text-light-text/60">行业认可</p>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div
+            class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 ring-4 ring-primary/10"
+          >
+            <svg
+              class="h-8 w-8 text-primary/70"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-center text-xs text-light-text/60">卓越表现</p>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div
+            class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 ring-4 ring-primary/10"
+          >
+            <svg
+              class="h-8 w-8 text-primary/70"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-center text-xs text-light-text/60">专业认证</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

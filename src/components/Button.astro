@@ -1,0 +1,46 @@
+---
+// 按钮组件
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline'
+  size?: 'sm' | 'md' | 'lg'
+  href?: string
+  class?: string
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  class: className = '',
+} = Astro.props
+
+const baseClasses =
+  'inline-flex items-center justify-center font-medium transition-all rounded-full'
+
+const variantClasses = {
+  primary: 'bg-primary hover:bg-primary-dark text-white',
+  secondary: 'bg-dark hover:bg-dark-900 text-white',
+  outline:
+    'border-2 border-primary text-primary hover:bg-primary hover:text-white',
+}
+
+const sizeClasses = {
+  sm: 'px-6 py-2 text-body-sm',
+  md: 'px-10 py-4 text-body-md',
+  lg: 'px-12 py-5 text-body-lg',
+}
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`
+---
+
+{
+  href ? (
+    <a href={href} class={classes}>
+      <slot />
+    </a>
+  ) : (
+    <button class={classes}>
+      <slot />
+    </button>
+  )
+}
