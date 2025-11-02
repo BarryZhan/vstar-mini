@@ -18,40 +18,43 @@ const menuItems = [
 ---
 
 <nav
-  class={`flex items-center justify-between py-4 px-6 md:px-12 lg:px-20 relative ${transparent ? 'backdrop-blur-sm' : ''}`}
+  id="main-nav"
+  class="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-transform duration-300 md:px-12 md:py-6 lg:px-20"
 >
-  <!-- Logo -->
-  <a
-    href="/"
-    class="z-10 flex items-center transition-opacity hover:opacity-80"
-  >
-    <Logo class="h-7 w-28 md:h-8 md:w-32 lg:h-9 lg:w-36" />
-  </a>
-
-  <!-- PC端导航菜单 -->
+  <!-- 带圆角的导航容器 -->
   <div
-    class="absolute left-0 hidden w-full flex-1 items-center justify-center lg:flex"
+    id="nav-container"
+    class="mx-auto flex max-w-[1400px] items-center justify-between rounded-full bg-white px-6 py-4 shadow-lg transition-all duration-300 md:px-8 md:py-5 lg:px-12"
   >
-    <div class="flex h-20 items-center gap-12 rounded-full bg-white px-12 py-5">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="z-10 flex items-center transition-opacity hover:opacity-80"
+    >
+      <Logo class="h-7 w-28 md:h-8 md:w-32 lg:h-9 lg:w-36" />
+    </a>
+
+    <!-- PC端导航菜单 -->
+    <div class="hidden items-center gap-8 lg:flex lg:gap-12">
       {
         menuItems.map((item) => (
           <a
             href={item.href}
-            class="whitespace-nowrap text-xl font-medium text-black transition-colors hover:text-primary"
+            class="menu-link whitespace-nowrap text-lg font-medium text-black transition-colors hover:text-primary lg:text-xl"
           >
             {item.label}
           </a>
         ))
       }
     </div>
-  </div>
 
-  <!-- 移动端菜单按钮 -->
-  <HeaderMenu
-    class="z-10 flex size-6 flex-col transition-opacity hover:opacity-80 lg:hidden"
-    aria-label="Menu"
-    id="menu-button"
-  />
+    <!-- 移动端菜单按钮 -->
+    <HeaderMenu
+      class="z-10 flex size-6 flex-col transition-opacity hover:opacity-80 lg:hidden"
+      aria-label="Menu"
+      id="menu-button"
+    />
+  </div>
 </nav>
 
 <script>
@@ -61,4 +64,69 @@ const menuItems = [
     console.log('Menu clicked')
     // TODO: 实现移动端菜单展开逻辑
   })
+
+  // 导航栏滚动交互逻辑
+  let lastScrollY = 0
+  let ticking = false
+
+  const nav = document.getElementById('main-nav')
+  const navContainer = document.getElementById('nav-container')
+  const menuLinks = document.querySelectorAll('.menu-link')
+
+  function updateNavigation() {
+    const currentScrollY = window.scrollY
+    const heroSection = document.getElementById('hero-section')
+    const heroHeight = heroSection?.offsetHeight || 0
+
+    // 判断滚动方向
+    const isScrollingDown = currentScrollY > lastScrollY
+    const isScrollingUp = currentScrollY < lastScrollY
+
+    // 判断是否超出 Hero 区域
+    const isOutOfHero = currentScrollY > heroHeight
+
+    if (nav) {
+      // 滚动方向控制显示/隐藏
+      if (isScrollingDown && currentScrollY > 100) {
+        // 向下滚动且超过100px时隐藏
+        nav.style.transform = 'translateY(-100%)'
+      } else if (isScrollingUp || currentScrollY <= 100) {
+        // 向上滚动或在顶部附近时显示
+        nav.style.transform = 'translateY(0)'
+      }
+    }
+
+    // 颜色切换逻辑
+    if (navContainer) {
+      if (isOutOfHero) {
+        // 超出 Hero 区域：背景黑色，文字白色
+        navContainer.style.backgroundColor = '#000000'
+        menuLinks.forEach(link => {
+          link.style.color = '#ffffff'
+        })
+      } else {
+        // 在 Hero 区域内：背景白色，文字黑色
+        navContainer.style.backgroundColor = '#ffffff'
+        menuLinks.forEach(link => {
+          link.style.color = '#000000'
+        })
+      }
+    }
+
+    lastScrollY = currentScrollY
+    ticking = false
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateNavigation)
+      ticking = true
+    }
+  }
+
+  // 监听滚动事件
+  window.addEventListener('scroll', requestTick, { passive: true })
+
+  // 初始化
+  updateNavigation()
 </script>

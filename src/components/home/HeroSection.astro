@@ -24,6 +24,7 @@ const features = [
 ---
 
 <section
+  id="hero-section"
   class="rounded-header relative overflow-hidden bg-gradient-to-r from-dark via-dark-900 to-dark pb-12 md:pb-16 lg:pb-24"
 >
   <!-- 背景装饰 -->
@@ -78,7 +79,7 @@ const features = [
       <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 lg:gap-6">
         {
           features.map((feature) => (
-            <div class="md:rounded-card rounded-lg border border-white/10 bg-white/5 p-3 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 md:p-4 lg:p-6">
+            <div class="md:rounded-card md:rounded-full bg-[#1F2123] p-3 transition-all duration-300  md:p-4 lg:p-6">
               <div class="flex flex-col items-center gap-2 md:flex-row md:gap-3">
                 <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/20 md:h-10 md:w-10 lg:h-12 lg:w-12">
                   {feature.icon === 'shield' && (
