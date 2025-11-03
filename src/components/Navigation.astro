@@ -21,7 +21,7 @@ const menuItems = [
 
 <nav
   id="main-nav"
-  class="fixed left-0 right-0 top-0 z-50 px-0 py-0 transition-transform duration-300 lg:px-6 lg:py-4 xl:px-12 xl:py-6 2xl:px-20"
+  class="fixed left-0 right-0 top-0 z-[100] px-0 py-0 transition-transform duration-300 lg:px-6 lg:py-4 xl:px-12 xl:py-6 2xl:px-20"
 >
   <!-- 导航容器 -->
   <div
@@ -86,6 +86,8 @@ const menuItems = [
 
   // 移动端菜单切换逻辑
   menuButton?.addEventListener('click', () => {
+    const isMobile = window.innerWidth < 1024
+
     if (!isMenuOpen) {
       // 打开菜单
       if (typeof (window as any).openMobileMenu === 'function') {
@@ -96,6 +98,11 @@ const menuItems = [
         if (menuIcon && closeIcon) {
           menuIcon.style.opacity = '0'
           closeIcon.style.opacity = '1'
+        }
+
+        // 移动端菜单打开时，强制背景变为黑色
+        if (isMobile && navContainer) {
+          navContainer.style.backgroundColor = '#020202'
         }
       }
     } else {
@@ -108,6 +115,16 @@ const menuItems = [
         if (menuIcon && closeIcon) {
           menuIcon.style.opacity = '1'
           closeIcon.style.opacity = '0'
+        }
+
+        // 关闭菜单后，根据滚动位置恢复背景色
+        if (isMobile && navContainer) {
+          const currentScrollY = window.scrollY
+          if (currentScrollY > 50) {
+            navContainer.style.backgroundColor = '#020202'
+          } else {
+            navContainer.style.backgroundColor = 'transparent'
+          }
         }
       }
     }
@@ -150,20 +167,21 @@ const menuItems = [
     // 背景色和文字颜色切换逻辑
     if (navContainer) {
       if (isMobile) {
-        // 移动端：滚动后变黑色，顶部透明
-        if (currentScrollY > 50) {
+        // 移动端：如果菜单打开，保持黑色；否则根据滚动位置变化
+        if (isMenuOpen) {
+          // 菜单打开时，强制保持黑色
           navContainer.style.backgroundColor = '#020202'
-          // Logo和图标保持白色
-          if (logoSvg) logoSvg.style.color = 'white'
-          if (menuIcon) menuIcon.style.color = 'white'
-          if (closeIcon) closeIcon.style.color = 'white'
+        } else if (currentScrollY > 50) {
+          // 滚动后变黑色
+          navContainer.style.backgroundColor = '#020202'
         } else {
+          // 顶部透明
           navContainer.style.backgroundColor = 'transparent'
-          // Logo和图标保持白色
-          if (logoSvg) logoSvg.style.color = 'white'
-          if (menuIcon) menuIcon.style.color = 'white'
-          if (closeIcon) closeIcon.style.color = 'white'
         }
+        // Logo和图标保持白色
+        if (logoSvg) logoSvg.style.color = 'white'
+        if (menuIcon) menuIcon.style.color = 'white'
+        if (closeIcon) closeIcon.style.color = 'white'
       } else {
         // PC端：根据Hero区域切换
         if (isOutOfHero) {
