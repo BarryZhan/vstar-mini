@@ -1,0 +1,188 @@
+{
+  "../../src/assets/about/awards1.png": {
+    "md5": "3680499bb8b4fa57831774c155a871d8",
+    "compressedSize": 13322,
+    "compressionRatio": 60.08389513108614,
+    "timestamp": "2025-11-03T09:30:34.057Z"
+  },
+  "../../src/assets/about/awards2.png": {
+    "md5": "66a10474313483c610d60817cc0c5bab",
+    "compressedSize": 14472,
+    "compressionRatio": 58.43648582670381,
+    "timestamp": "2025-11-03T09:30:34.331Z"
+  },
+  "../../src/assets/about/core-bgm2.png": {
+    "md5": "b9c60a3cfd5ad4f5134ceff57c66a3f6",
+    "compressedSize": 64099,
+    "compressionRatio": 63.1314060900275,
+    "timestamp": "2025-11-03T09:30:35.766Z"
+  },
+  "../../src/assets/about/core-bgm1.png": {
+    "md5": "a55b0000894cbf6521a7db83f643703d",
+    "compressedSize": 104107,
+    "compressionRatio": 81.4939970634139,
+    "timestamp": "2025-11-03T09:30:36.527Z"
+  },
+  "../../src/assets/about/core-bgm3.png": {
+    "md5": "0ce27069de8b2d8b6987b66b58099a91",
+    "compressedSize": 123367,
+    "compressionRatio": 82.66068108061005,
+    "timestamp": "2025-11-03T09:31:03.096Z"
+  },
+  "../../src/assets/about/partner1.png": {
+    "md5": "d9ea427a41c349fe16e067dd19614a8d",
+    "compressedSize": 4455,
+    "compressionRatio": 64.7324255858138,
+    "timestamp": "2025-11-03T09:31:03.736Z"
+  },
+  "../../src/assets/about/partner2.png": {
+    "md5": "9d6103cefabdb42603c5a793c4a5dfb8",
+    "compressedSize": 2591,
+    "compressionRatio": 55.44282029234737,
+    "timestamp": "2025-11-03T09:31:04.235Z"
+  },
+  "../../src/assets/about/partner4.png": {
+    "md5": "18379bed6af558c0bbb15a746bef5f62",
+    "compressedSize": 4677,
+    "compressionRatio": 64.10315450149666,
+    "timestamp": "2025-11-03T09:31:04.404Z"
+  },
+  "../../src/assets/about/partner3.png": {
+    "md5": "ee47c4a71e3771540c2d8cf74a6432a9",
+    "compressedSize": 3986,
+    "compressionRatio": 65.29990423957517,
+    "timestamp": "2025-11-03T09:31:04.471Z"
+  },
+  "../../src/assets/about/core-bgm4.png": {
+    "md5": "d8f611bb227851fc73feeb5bee7ceb01",
+    "compressedSize": 146056,
+    "compressionRatio": 81.01277506295231,
+    "timestamp": "2025-11-03T09:31:07.538Z"
+  },
+  "../../src/assets/about/partner5.png": {
+    "md5": "ca7b50a3f26c47dbac0cf9eba2041fef",
+    "compressedSize": 3359,
+    "compressionRatio": 64.37208315655494,
+    "timestamp": "2025-11-03T09:31:08.222Z"
+  },
+  "../../src/assets/compliance/eu-logo.png": {
+    "md5": "bfd6ff295b49b260b6d4c7d8aab1b184",
+    "compressedSize": 12190,
+    "compressionRatio": 65.92878305103696,
+    "timestamp": "2025-11-03T09:31:08.499Z"
+  },
+  "../../src/assets/compliance/asic-logo.png": {
+    "md5": "7d8d21c8f75624b44ea4bd503ce8567f",
+    "compressedSize": 14029,
+    "compressionRatio": 66.05284808595073,
+    "timestamp": "2025-11-03T09:31:08.742Z"
+  },
+  "../../src/assets/compliance/world.png": {
+    "md5": "ea9ad6d63df546e20c541f53c98509a8",
+    "compressedSize": 47589,
+    "compressionRatio": 67.64259925343197,
+    "timestamp": "2025-11-03T09:31:09.945Z"
+  },
+  "../../src/assets/compliance/world-pc.png": {
+    "md5": "21ccb7183decace47840abd111b555ab",
+    "compressedSize": 123087,
+    "compressionRatio": 67.34477845960379,
+    "timestamp": "2025-11-03T09:31:12.453Z"
+  },
+  "../../src/assets/home/icon-accessibility.png": {
+    "md5": "54c65f884f66adbb3cbedd87612b7f2c",
+    "compressedSize": 2808,
+    "compressionRatio": 66.80066209505794,
+    "timestamp": "2025-11-03T09:31:13.063Z"
+  },
+  "../../src/assets/home/icon-monitoring.png": {
+    "md5": "523fde82ecfe50cdbec61a5869f6b60d",
+    "compressedSize": 2418,
+    "compressionRatio": 73.72310367311454,
+    "timestamp": "2025-11-03T09:31:13.136Z"
+  },
+  "../../src/assets/home/building.png": {
+    "md5": "bc9bd4f5fe3dbe0e65f499b989b2c859",
+    "compressedSize": 86142,
+    "compressionRatio": 81.21569610868214,
+    "timestamp": "2025-11-03T09:31:15.266Z"
+  },
+  "../../src/assets/home/hero-bg.png": {
+    "md5": "b62523fc1719bed0a8bdc1dc6c04b7fc",
+    "compressedSize": 74875,
+    "compressionRatio": 59.7614978664861,
+    "timestamp": "2025-11-03T09:31:15.499Z"
+  },
+  "../../src/assets/home/donwload-bg.png": {
+    "md5": "92cdf864b0705d53ab819cbf86395562",
+    "compressedSize": 347432,
+    "compressionRatio": 71.83994501432998,
+    "timestamp": "2025-11-03T09:31:18.197Z"
+  },
+  "../../src/assets/home/icon-security.png": {
+    "md5": "3c8d691ee954298bb7eb470c5afa482b",
+    "compressedSize": 2974,
+    "compressionRatio": 70.64455631230877,
+    "timestamp": "2025-11-03T09:31:18.820Z"
+  },
+  "../../src/assets/home/icon-performance.png": {
+    "md5": "e0882f07702ab943cc76119c0dc3538e",
+    "compressedSize": 1805,
+    "compressionRatio": 63.64551863041289,
+    "timestamp": "2025-11-03T09:31:18.822Z"
+  },
+  "../../src/assets/home/icon-user-interface.png": {
+    "md5": "39e6b77c58192307631cbc5860957e04",
+    "compressedSize": 2825,
+    "compressionRatio": 67.42013608580325,
+    "timestamp": "2025-11-03T09:31:18.852Z"
+  },
+  "../../src/assets/home/icon-realtime-quotes.png": {
+    "md5": "06e8840c039a1214dfe3b8a57ba5946a",
+    "compressedSize": 2661,
+    "compressionRatio": 65.62015503875969,
+    "timestamp": "2025-11-03T09:31:19.536Z"
+  },
+  "../../src/assets/home/intro.png": {
+    "md5": "8bf3abf9ce402fc5e93c0b21ecd3fbaa",
+    "compressedSize": 52934,
+    "compressionRatio": 64.7949241482053,
+    "timestamp": "2025-11-03T09:31:21.039Z"
+  },
+  "../../src/assets/icons/asic/audit-report.png": {
+    "md5": "b95e6e39f71da2b3bf3301e84e544d9d",
+    "compressedSize": 2683,
+    "compressionRatio": 66.50855074272874,
+    "timestamp": "2025-11-03T09:31:21.713Z"
+  },
+  "../../src/assets/icons/asic/regulatory-enforcement.png": {
+    "md5": "f6636451ea7fc822e9794d7da498429f",
+    "compressedSize": 1873,
+    "compressionRatio": 58.38702510553211,
+    "timestamp": "2025-11-03T09:31:21.714Z"
+  },
+  "../../src/assets/icons/asic/fund-isolation.png": {
+    "md5": "77327ffc9980d1cde07fad72d9aeb2cc",
+    "compressedSize": 3124,
+    "compressionRatio": 67.44816088360946,
+    "timestamp": "2025-11-03T09:31:21.716Z"
+  },
+  "../../src/assets/icons/asic/compensation.png": {
+    "md5": "eeb567c1871fb8a064bb9d59e464c05a",
+    "compressedSize": 2633,
+    "compressionRatio": 64.34182015167931,
+    "timestamp": "2025-11-03T09:31:21.725Z"
+  },
+  "../../src/assets/icons/asic/risk-management.png": {
+    "md5": "485a2358d76c63350b8059c67983a59f",
+    "compressedSize": 3895,
+    "compressionRatio": 62.64147323997699,
+    "timestamp": "2025-11-03T09:31:21.767Z"
+  },
+  "../../src/assets/technology-img.png": {
+    "md5": "0e985db9cee013eb5a9908d1cae5ab97",
+    "compressedSize": 139106,
+    "compressionRatio": 83.34761872839235,
+    "timestamp": "2025-11-03T09:31:25.213Z"
+  }
+}

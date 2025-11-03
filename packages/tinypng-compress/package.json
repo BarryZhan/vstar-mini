@@ -1,0 +1,15 @@
+{
+  "name": "@vstar/tinypng-compress",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "5.7.3"
+  },
+  "dependencies": {
+    "tinify": "^1.8.0"
+  }
+}
