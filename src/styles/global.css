@@ -44,6 +44,10 @@
 
     /* ==================== 正文字体类 ==================== */
     /* 大正文 - 用于重要描述 */
+    .text-body-xl {
+        @apply text-lg md:text-xl lg:text-2xl leading-relaxed;
+    }
+    /* 大正文 - 用于重要描述 */
     .text-body-lg {
         @apply text-base md:text-lg lg:text-xl leading-relaxed;
     }
@@ -134,5 +138,6 @@
         @apply rounded-t-[40px] md:rounded-t-[50px] lg:rounded-t-[60px];
     }
 }
+
 
 

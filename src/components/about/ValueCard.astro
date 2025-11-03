@@ -1,8 +1,9 @@
 ---
+import { Image } from 'astro:assets'
 /**
  * 价值观卡片组件
  *
- * @description 展示单个核心价值观，支持左右不同布局
+ * @description 展示单个核心价值观，支持多种布局样式
  */
 
 interface Props {
@@ -10,70 +11,26 @@ interface Props {
   title: string
   /** 价值观描述 */
   description: string
-  /** 卡片图片 */
-  image?: string
-  /** 布局类型：left-image（图片在左）或 right-image（图片在右） */
-  layout?: 'left-image' | 'right-image' | 'text-only'
+  /** 背景图片（用于底部背景） */
+  bgImage: ImageMetadata
 }
 
-const { title, description, image, layout = 'text-only' } = Astro.props
+const { title, description, bgImage } = Astro.props
 ---
 
-{
-  layout === 'text-only' ? (
-    <div class="rounded-[15px] bg-light-bg p-6 transition-shadow hover:shadow-lg md:rounded-[20px] md:p-8 lg:rounded-[22px] lg:p-10">
-      <h3 class="mb-2.5 text-[22px] font-bold text-dark md:mb-4 md:text-[30px] lg:text-[36px]">
-        {title}
-      </h3>
-      <p class="text-[14px] leading-relaxed text-dark/75 md:text-[16px] lg:text-[18px]">
-        {description}
-      </p>
-    </div>
-  ) : layout === 'left-image' ? (
-    <div class="overflow-hidden rounded-[15px] bg-light-bg transition-shadow hover:shadow-lg md:rounded-[20px] lg:h-[446px] lg:rounded-[22px]">
-      <div class="flex h-full flex-col lg:grid lg:grid-cols-[1.2fr,1fr]">
-        <div class="relative h-[220px] md:h-[260px] lg:h-full">
-          {image && (
-            <img
-              src={image}
-              alt={title}
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
-          )}
-        </div>
-        <div class="flex flex-col justify-center p-6 md:p-8 lg:p-10">
-          <h3 class="mb-2.5 text-[22px] font-bold text-dark md:mb-4 md:text-[30px] lg:text-[36px]">
-            {title}
-          </h3>
-          <p class="text-[14px] leading-relaxed text-dark/75 md:text-[16px] lg:text-[18px]">
-            {description}
-          </p>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div class="overflow-hidden rounded-[15px] bg-light-bg transition-shadow hover:shadow-lg md:rounded-[20px] lg:h-[446px] lg:rounded-[22px]">
-      <div class="flex h-full flex-col lg:grid lg:grid-cols-[1fr,1.2fr]">
-        <div class="relative h-[220px] md:h-[260px] lg:order-2 lg:h-full">
-          {image && (
-            <img
-              src={image}
-              alt={title}
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
-          )}
-        </div>
-        <div class="flex flex-col justify-center p-6 md:p-8 lg:order-1 lg:p-10">
-          <h3 class="mb-2.5 text-[22px] font-bold text-dark md:mb-4 md:text-[30px] lg:text-[36px]">
-            {title}
-          </h3>
-          <p class="text-[14px] leading-relaxed text-dark/75 md:text-[16px] lg:text-[18px]">
-            {description}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
+<div class="group relative overflow-hidden rounded-[18px]">
+  <Image
+    src={bgImage}
+    alt=""
+    class="absolute w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+    loading="lazy"
+  />
+  <div class="relative p-6">
+    <h3 class="text-body-xl font-bold text-light mb-3">
+      {title}
+    </h3>
+    <p class="text-body-md text-light-text">
+      {description}
+    </p>
+  </div>
+</div>

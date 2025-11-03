@@ -1,4 +1,10 @@
 ---
+import { Image } from 'astro:assets'
+import Partner1Image from '../../assets/about/partner1.png'
+import Partner2Image from '../../assets/about/partner2.png'
+import Partner3Image from '../../assets/about/partner3.png'
+import Partner4Image from '../../assets/about/partner4.png'
+import Partner5Image from '../../assets/about/partner5.png'
 /**
  * 合作伙伴区块组件
  *
@@ -7,12 +13,11 @@
 
 // 合作伙伴 Logo 列表 - 这里需要替换为实际的 Logo 图片路径
 const partners = [
-  { name: 'Google Cloud', logo: '' },
-  { name: 'MongoDB', logo: '' },
-  { name: 'Supabase', logo: '' },
-  { name: 'Vercel', logo: '' },
-  { name: 'Partner 5', logo: '' },
-  { name: 'Partner 6', logo: '' },
+  { name: 'Google Cloud', logo: Partner1Image },
+  { name: 'MongoDB', logo: Partner2Image },
+  { name: 'Supabase', logo: Partner3Image },
+  { name: 'Vercel', logo: Partner4Image },
+  { name: 'Partner 5', logo: Partner5Image },
 ]
 ---
 
@@ -41,7 +46,7 @@ const partners = [
         partners.map((partner) => (
           <div class="group flex items-center justify-center rounded-xl bg-white p-6 shadow-sm transition-all hover:shadow-md lg:p-7">
             {partner.logo ? (
-              <img
+              <Image
                 src={partner.logo}
                 alt={partner.name}
                 class="h-10 w-auto object-contain grayscale transition-all group-hover:grayscale-0 md:h-12 lg:h-14"

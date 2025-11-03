@@ -6,31 +6,33 @@
  */
 
 import ValueCard from './ValueCard.astro'
+import coreBgm1 from '../../assets/about/core-bgm1.png'
+import coreBgm2 from '../../assets/about/core-bgm2.png'
+import coreBgm3 from '../../assets/about/core-bgm3.png'
+import coreBgm4 from '../../assets/about/core-bgm4.png'
 
 const values = [
   {
     title: '持续创新',
     description:
       '年收入的30%投入研发，并于2023年成功推出自主研发的VSTAR数据聚合器。',
-    layout: 'left-image' as const,
-    image: '/src/assets/technology-img.png', // 这里需要替换为实际的图片路径
+    bgImage: coreBgm3,
   },
   {
     title: '极致效率',
     description: '持续优化全球网络架构，东京数据中心的网络延迟率业内领先。',
-    layout: 'right-image' as const,
-    image: '/src/assets/technology-img.png', // 这里需要替换为实际的图片路径
+    bgImage: coreBgm2,
   },
   {
     title: '透明运营',
     description: '坚持公开、透明的运营原则，积极与用户沟通。',
-    layout: 'text-only' as const,
+    bgImage: coreBgm1,
   },
   {
     title: '用户至上',
     description:
       '我们建立7×24小时多语种技术支持团队，2024年用户满意度调研得分达98.6%。',
-    layout: 'text-only' as const,
+    bgImage: coreBgm4,
   },
 ]
 ---
@@ -52,8 +54,7 @@ const values = [
           <ValueCard
             title={value.title}
             description={value.description}
-            layout={value.layout}
-            image={value.image}
+            bgImage={value.bgImage}
           />
         ))
       }
