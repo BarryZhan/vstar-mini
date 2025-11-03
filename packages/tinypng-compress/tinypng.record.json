@@ -232,5 +232,11 @@
     "compressedSize": 484516,
     "compressionRatio": 67.32711591241663,
     "timestamp": "2025-11-03T17:53:45.783Z"
+  },
+  "../../src/assets/about/map.png": {
+    "md5": "ff1e907cfac4f0242850b26417b14b19",
+    "compressedSize": 145266,
+    "compressionRatio": 64.48923916338283,
+    "timestamp": "2025-11-03T18:00:25.449Z"
   }
 }
