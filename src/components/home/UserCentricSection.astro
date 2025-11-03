@@ -1,33 +1,35 @@
 ---
-// 用户为中心 - 解决核心痛点区域
+import Img from '../../assets/home/building.png'
+import Button from '../Button.astro'
+import { Image } from 'astro:assets'
 ---
 
-<section class="px-6 py-16">
-  <div class="mx-auto">
+<section class="items-center py-16 md:flex md:gap-20 lg:pt-20">
+  <div class="min-w-0 flex-1">
     <!-- 小标题 -->
     <p class="mb-1 text-sm font-normal text-primary">User - Centric</p>
 
     <!-- 主标题 -->
-    <h2 class="mb-10 text-[30px] font-medium leading-tight text-white">
-      解决核心痛点：
-    </h2>
+    <h2 class="text-heading-1 mb-10 font-medium text-white">解决核心痛点：</h2>
 
     <!-- 痛点列表 -->
-    <ul class="mb-8 space-y-4 text-sm leading-relaxed text-white">
-      <li class="flex gap-3">
-        <span class="mt-1 flex-shrink-0 text-primary">•</span>
+    <ul
+      class="text-body-md mb-8 space-y-2 leading-relaxed text-white lg:text-lg"
+    >
+      <li class="flex gap-2">
+        <span class="mt-1 flex-shrink-0">•</span>
         <span
           >厌倦了信息滞后？VS TRADER提供实时同步数据流，确保您随时掌握最新动态。</span
         >
       </li>
-      <li class="flex gap-3">
-        <span class="mt-1 flex-shrink-0 text-primary">•</span>
+      <li class="flex gap-2">
+        <span class="mt-1 flex-shrink-0">•</span>
         <span
           >担心系统卡顿崩溃？我们的工程团队专注于性能优化，提供坚如磐石的稳定性。</span
         >
       </li>
-      <li class="flex gap-3">
-        <span class="mt-1 flex-shrink-0 text-primary">•</span>
+      <li class="flex gap-2">
+        <span class="mt-1 flex-shrink-0">•</span>
         <span
           >困惑于复杂操作？直观的UI设计人性化交互逻辑，让专业能力轻松上手。</span
         >
@@ -35,8 +37,8 @@
     </ul>
 
     <!-- 立即下载按钮 -->
-    <button
-      class="group flex items-center gap-2 text-sm font-bold text-white/90 transition-colors hover:text-white"
+    <a
+      class="text-body-md group flex items-center gap-2 font-bold text-white/90 transition-colors hover:text-white lg:hidden"
     >
       <span>立即下载</span>
       <svg
@@ -52,6 +54,14 @@
           stroke-linecap="round"
           stroke-linejoin="round"></path>
       </svg>
-    </button>
+    </a>
+    <div class="hidden lg:block">
+      <Button>立即下载</Button>
+    </div>
   </div>
+  <Image
+    src={Img}
+    alt=""
+    class="mt-10 min-w-0 flex-1 md:mt-0 md:max-w-[615px]"
+  />
 </section>

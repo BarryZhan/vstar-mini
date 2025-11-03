@@ -1,4 +1,8 @@
 ---
+import { Image } from 'astro:assets'
+import OfficesImg1 from '../../assets/concat/offices1.png'
+import OfficesImg2 from '../../assets/concat/offices2.png'
+import OfficesImg3 from '../../assets/concat/offices3.png'
 // 办公室数据
 const offices = [
   {
@@ -6,24 +10,21 @@ const offices = [
     location: '澳大利亚，墨尔本',
     address:
       'UNIT 1, 5-7 Compark Circuit, Mulgrave VIC 3170, Melbourne, Australia',
-    image:
-      'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800&h=800&fit=crop',
+    image: OfficesImg1,
     imageAlt: 'Melbourne Office',
   },
   {
     title: '亚太办事处（技术支持）',
     location: '中国，香港',
     address: "New World Tower 16-18 Queen's Road Central, Central, Hong Kong",
-    image:
-      'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&h=800&fit=crop',
+    image: OfficesImg2,
     imageAlt: 'Hong Kong Office',
   },
   {
     title: '欧洲办事处（合规与运营）',
     location: '塞浦路斯，利马索尔',
     address: "New World Tower 16-18 Queen's Road Central, Central, Hong Kong",
-    image:
-      'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&h=800&fit=crop',
+    image: OfficesImg3,
     imageAlt: 'Cyprus Office',
   },
 ]
@@ -36,14 +37,12 @@ const offices = [
     {
       offices.map((office, index) => (
         <div
-          class={`flex items-start gap-4 md:gap-6 lg:gap-8 ${
-            index % 2 === 0
-              ? 'flex-row lg:flex-row'
-              : 'flex-row lg:flex-row-reverse'
+          class={`flex items-start gap-4 md:gap-6 lg:gap-28 xl:gap-40 ${
+            index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
           }`}
         >
           <div class="md:rounded-image h-[100px] w-[100px] shrink-0 overflow-hidden rounded-lg md:h-[180px] md:w-[180px] lg:h-[452px] lg:w-[452px]">
-            <img
+            <Image
               src={office.image}
               alt={office.imageAlt}
               class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
@@ -51,14 +50,14 @@ const offices = [
             />
           </div>
 
-          <div class="flex-1 pt-1 md:pt-2">
-            <h3 class="lg:text-heading-4 mb-1 text-[16px] md:mb-2 md:text-[18px]">
+          <div class="flex-1 pt-1 md:pt-2 lg:max-w-[472px] lg:pt-10">
+            <h3 class="mb-1 text-[16px] font-medium md:mb-2 md:text-[18px] lg:text-3xl">
               {office.title}：
             </h3>
-            <p class="text-body-sm md:text-body-md lg:text-body-lg mb-1.5 md:mb-2 lg:mb-4">
+            <p class="text-body-sm md:text-body-md lg:text-body-lg mb-1.5 md:mb-2 lg:my-8">
               {office.location}
             </p>
-            <p class="text-body-xs md:text-body-sm lg:text-address leading-relaxed text-dark/60">
+            <p class="text-body-xs md:text-body-sm lg:text-address leading-relaxed">
               {office.address}
             </p>
           </div>

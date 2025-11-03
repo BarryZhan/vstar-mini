@@ -9,7 +9,6 @@ interface Props {
 const { title, email, icon } = Astro.props
 
 const icons = {
-  // 钥匙图标 - 媒体问询（简洁线条风格）
   media: `
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="64" height="64" rx="12" fill="black"/>
@@ -20,18 +19,26 @@ const icons = {
 </svg>
 
   `,
-  // 菱形握手图标 - 合作伙伴（简洁线条风格）
   partner: `
-    <path d="M12 3L6 9L12 15L18 9L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M9 12L6 15L9 18L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M15 12L18 15L15 18L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="64" height="64" rx="12" fill="black"/>
+<path d="M32 44L41 35L38 38L35 41L32 44ZM32 44L17 29L26 20L32 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.75 31.25L38 20L47 29L41 35L35 29L30.5 33.5L26.75 31.25ZM26.75 31.25L32 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 41L32.75 38.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38 38L35.75 35.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
   `,
-  // 两个人图标 - 一般问询（简洁线条风格）
   general: `
-    <circle cx="9" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-    <circle cx="15" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-    <path d="M5 19V17C5 15.3 6.8 14 9 14C11.2 14 13 15.3 13 17V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-    <path d="M11 19V17C11 15.3 12.8 14 15 14C17.2 14 19 15.3 19 17V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="64" height="64" rx="12" fill="black"/>
+<path d="M41.75 26C39.679 26 38 24.321 38 22.25C38 20.1789 39.679 18.5 41.75 18.5C43.821 18.5 45.5 20.1789 45.5 22.25C45.5 24.321 43.821 26 41.75 26Z" stroke="white" stroke-width="2" stroke-miterlimit="2"/>
+<path d="M23 23C21.3431 23 20 21.6568 20 20C20 18.3431 21.3431 17 23 17C24.6568 17 26 18.3431 26 20C26 21.6568 24.6568 23 23 23Z" stroke="white" stroke-width="2" stroke-miterlimit="2"/>
+<path d="M33.5 43.25L38 39.5V35C38 32.4004 39.5 30.5 41.75 30.5C44 30.5 45.5 32.4004 45.5 35V38.6279V45.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M32 38.75L27.5 35V32C27.5 29.4004 26 27.5 23.75 27.5C21.5 27.5 20 29.4004 20 32V34.1279V45.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
   `,
 }
 ---
@@ -53,7 +60,7 @@ const icons = {
         <h4 class="card-title">
           {title}
         </h4>
-        <p class="text-body-lg mb-6 md:mb-8 lg:mb-10">
+        <p class="text-body-lg mb-6 md:mb-8 lg:mb-12">
           {email}
         </p>
       </div>

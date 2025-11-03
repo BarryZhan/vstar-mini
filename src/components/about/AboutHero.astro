@@ -4,20 +4,17 @@
  *
  * @description 包含页面标题、简介、品牌使命/愿景卡片和联系信息
  */
+import Button from '../Button.astro'
 ---
 
 <!-- Hero 容器 -->
 <section
   id="hero-section"
-  class="relative overflow-hidden rounded-b-[40px] bg-gradient-to-r from-dark via-dark-900 to-dark pb-20 pt-24 md:rounded-b-[60px] md:pb-28 md:pt-32 lg:rounded-b-[72px] lg:pb-36 lg:pt-40"
+  class="relative overflow-hidden rounded-b-[40px] bg-gradient-to-r from-dark via-dark-900 to-dark pb-20 pt-24 md:rounded-b-[60px] md:pb-28 md:pt-32 lg:rounded-b-[72px] lg:pb-36 lg:pt-48"
 >
   <div class="content-container">
     <!-- 主标题 -->
-    <h1
-      class="mb-6 text-center text-[40px] font-bold leading-tight text-white md:mb-8 md:text-[52px] lg:text-[60px]"
-    >
-      关于我们
-    </h1>
+    <h1 class="text-heading-hero mb-6 text-center md:mb-8">关于我们</h1>
 
     <!-- 简介文本 -->
     <p
@@ -28,12 +25,7 @@
 
     <!-- 查看详情按钮 -->
     <div class="mb-14 flex justify-center lg:mb-16">
-      <a
-        href="#details"
-        class="inline-flex items-center justify-center rounded-full bg-primary px-10 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-primary-dark md:px-12 md:py-4 md:text-[16px]"
-      >
-        查看详情
-      </a>
+      <Button variant="primary" size="md"> 查看详情 </Button>
     </div>
 
     <!-- 品牌卡片组 -->

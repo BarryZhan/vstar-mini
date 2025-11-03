@@ -19,7 +19,7 @@
     /* ==================== 标题字体类 ==================== */
     /* 超大标题 - 用于页面主标题 */
     .text-heading-hero {
-        @apply text-[32px] md:text-[48px] lg:text-[60px] font-normal leading-tight;
+        @apply text-[32px] md:text-[48px] lg:text-[60px] font-bold text-white leading-tight;
     }
 
     /* 一级标题 - 用于区块标题 */
@@ -103,7 +103,7 @@
 
     /* 卡片标题组合 */
     .card-title {
-        @apply text-heading-3 mb-3 md:mb-4 lg:mb-6;
+        @apply text-heading-3 mb-3;
     }
 
     /* 内容容器 */
@@ -137,8 +137,13 @@
         @apply rounded-[15px] md:rounded-[22px] lg:rounded-[33px];
     }
 
+    .rounded-section {
+        @apply rounded-[40px] md:rounded-[50px] lg:rounded-[60px];
+
+    }
+
     .rounded-header {
-        @apply rounded-b-[40px] md:rounded-b-[60px] lg:rounded-b-[72px];
+        @apply rounded-b-[40px] md:rounded-b-[50px] lg:rounded-b-[60px];
     }
 
     .rounded-footer {

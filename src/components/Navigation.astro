@@ -1,5 +1,6 @@
 ---
 import Logo from '../assets/logo.svg'
+import LogoDark from '../assets/logo-dark.svg'
 import HeaderMenu from '../assets/header-menu.svg'
 import CloseIcon from '../assets/close-icon.svg'
 import MobileMenu from './MobileMenu.astro'
@@ -26,7 +27,7 @@ const menuItems = [
   <!-- 导航容器 -->
   <div
     id="nav-container"
-    class="mx-auto flex h-[68px] max-w-[1400px] items-center justify-between bg-transparent px-4 py-[15px] transition-all duration-300 lg:h-auto lg:rounded-full lg:bg-white lg:px-8 lg:py-5 lg:shadow-lg xl:px-12"
+    class="content-container mx-auto flex h-[68px] items-center justify-between bg-transparent py-[15px] transition-all duration-300 lg:h-auto lg:px-8 lg:py-5 xl:px-12"
   >
     <!-- Logo -->
     <a
@@ -34,14 +35,18 @@ const menuItems = [
       id="logo-link"
       class="z-10 flex items-center transition-opacity hover:opacity-80"
     >
-      <Logo
-        id="logo-svg"
-        class="h-7 w-28 text-white md:h-8 md:w-32 lg:h-9 lg:w-36 lg:text-black"
+      <Logo id="logo-svg" class="h-7 w-28 md:h-8 md:w-32 lg:h-9 lg:w-36" />
+      <LogoDark
+        id="logo-svg-dark"
+        class="hidden h-7 w-28 md:h-8 md:w-32 lg:h-9 lg:w-36"
       />
     </a>
 
     <!-- PC端导航菜单 -->
-    <div class="hidden items-center gap-8 lg:flex lg:gap-12">
+    <div
+      id="nav-menu"
+      class="mx-auto hidden h-20 items-center gap-8 px-20 lg:flex lg:gap-12 lg:rounded-full lg:bg-white lg:shadow-lg"
+    >
       {
         menuItems.map((item) => (
           <a
@@ -53,6 +58,8 @@ const menuItems = [
         ))
       }
     </div>
+
+    <div class="hidden w-36 lg:block"></div>
 
     <!-- 移动端菜单按钮 -->
     <button
@@ -78,9 +85,11 @@ const menuItems = [
   const menuIcon = document.getElementById('menu-icon')
   const closeIcon = document.getElementById('close-icon')
   const nav = document.getElementById('main-nav')
+  const navMenu = document.getElementById('nav-menu')
   const navContainer = document.getElementById('nav-container')
   const menuLinks = document.querySelectorAll('.menu-link')
   const logoSvg = document.getElementById('logo-svg')
+  const logoDarkSvg = document.getElementById('logo-svg-dark')
 
   let isMenuOpen = false
 
@@ -153,7 +162,7 @@ const menuItems = [
       // 只在PC端应用滚动隐藏逻辑，移动端保持常驻
       if (!isMobile) {
         // PC端：滚动方向控制显示/隐藏
-        if (isScrollingDown && currentScrollY > 100) {
+        if (isScrollingDown && currentScrollY > 300) {
           nav.style.transform = 'translateY(-100%)'
         } else if (isScrollingUp || currentScrollY <= 100) {
           nav.style.transform = 'translateY(0)'
@@ -165,7 +174,7 @@ const menuItems = [
     }
 
     // 背景色和文字颜色切换逻辑
-    if (navContainer) {
+    if (navContainer && navMenu) {
       if (isMobile) {
         // 移动端：如果菜单打开，保持黑色；否则根据滚动位置变化
         if (isMenuOpen) {
@@ -179,20 +188,29 @@ const menuItems = [
           navContainer.style.backgroundColor = 'transparent'
         }
         // Logo和图标保持白色
-        if (logoSvg) logoSvg.style.color = 'white'
+        if (logoSvg) {
+          logoSvg.style.display = 'block'
+          logoDarkSvg!.style.display = 'none'
+        }
         if (menuIcon) menuIcon.style.color = 'white'
         if (closeIcon) closeIcon.style.color = 'white'
       } else {
         // PC端：根据Hero区域切换
         if (isOutOfHero) {
-          navContainer.style.backgroundColor = '#000000'
-          if (logoSvg) logoSvg.style.color = 'white'
+          navMenu.style.backgroundColor = '#000000'
+          if (logoSvg) {
+            logoSvg.style.display = 'none'
+            logoDarkSvg!.style.display = 'block'
+          }
           menuLinks.forEach((link) => {
             link.style.color = '#ffffff'
           })
         } else {
-          navContainer.style.backgroundColor = '#ffffff'
-          if (logoSvg) logoSvg.style.color = 'black'
+          navMenu.style.backgroundColor = '#ffffff'
+          if (logoSvg) {
+            logoSvg.style.display = 'block'
+            logoDarkSvg!.style.display = 'none'
+          }
           menuLinks.forEach((link) => {
             link.style.color = '#000000'
           })

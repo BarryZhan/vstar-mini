@@ -184,5 +184,53 @@
     "compressedSize": 139106,
     "compressionRatio": 83.34761872839235,
     "timestamp": "2025-11-03T09:31:25.213Z"
+  },
+  "../../src/assets/home/about.png": {
+    "md5": "2f59b676326053a06670fb4d45cb7312",
+    "compressedSize": 54959,
+    "compressionRatio": 79.62579889378235,
+    "timestamp": "2025-11-03T17:53:33.870Z"
+  },
+  "../../src/assets/home/article1.png": {
+    "md5": "c6947dc279b20b494458bd7a4d839295",
+    "compressedSize": 325323,
+    "compressionRatio": 71.87332218029023,
+    "timestamp": "2025-11-03T17:53:37.207Z"
+  },
+  "../../src/assets/concat/offices2.png": {
+    "md5": "415713edbb874eda5528594bf8a1cbbf",
+    "compressedSize": 321702,
+    "compressionRatio": 68.63848794972832,
+    "timestamp": "2025-11-03T17:53:37.284Z"
+  },
+  "../../src/assets/concat/offices3.png": {
+    "md5": "19dbe192d2e74e841fb39db0a8c8e6bd",
+    "compressedSize": 348277,
+    "compressionRatio": 71.00067194956132,
+    "timestamp": "2025-11-03T17:53:37.290Z"
+  },
+  "../../src/assets/concat/offices1.png": {
+    "md5": "d92cc77a1f4d134cb8414cd7a7ace8a3",
+    "compressedSize": 378921,
+    "compressionRatio": 69.65162573854431,
+    "timestamp": "2025-11-03T17:53:38.577Z"
+  },
+  "../../src/assets/home/article2.png": {
+    "md5": "b402c270b2e7c1aef10566ae99e8ab6c",
+    "compressedSize": 71485,
+    "compressionRatio": 72.0953563175317,
+    "timestamp": "2025-11-03T17:53:40.761Z"
+  },
+  "../../src/assets/home/hero-bg-m.png": {
+    "md5": "40f4419c22ed376e294d96dc506b6be9",
+    "compressedSize": 43429,
+    "compressionRatio": 62.4576417704011,
+    "timestamp": "2025-11-03T17:53:40.954Z"
+  },
+  "../../src/assets/home/donwload-bg-pc.png": {
+    "md5": "829df601fa4f6524684639a2841c5e65",
+    "compressedSize": 484516,
+    "compressionRatio": 67.32711591241663,
+    "timestamp": "2025-11-03T17:53:45.783Z"
   }
 }

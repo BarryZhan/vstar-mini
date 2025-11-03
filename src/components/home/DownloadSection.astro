@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import ButtonApple from '../../assets/home/download-apple.svg'
 import DownloadBg from '../../assets/home/donwload-bg.png'
+import DownloadPCBg from '../../assets/home/donwload-bg-pc.png'
 import ButtonGoogle from '../../assets/home/download-google.svg'
 import ButtonApk from '../../assets/home/download-android.svg'
 export const downloadPath = {
@@ -13,43 +14,59 @@ export const downloadPath = {
 ---
 
 <section
-  class="content-container section-margin relative z-0 flex flex-col overflow-hidden rounded-t-[40px] bg-gradient-to-b from-black to-gray-900 py-16 pb-[150%] lg:rounded-t-[60px]"
+  class="section-margin relative z-0 flex flex-col overflow-hidden rounded-t-[40px] bg-gradient-to-b from-black to-gray-900 py-16 pb-[150%] lg:h-[672px] lg:rounded-[60px] lg:bg-black lg:bg-none lg:pb-0 lg:pt-30"
 >
-  <Image class="absolute bottom-0 left-0 -z-[1]" src={DownloadBg} alt={'bg'} />
+  <Image
+    class="absolute bottom-0 left-0 -z-[1] lg:hidden"
+    src={DownloadBg}
+    alt={'bg'}
+  />
+  <Image
+    class="absolute -left-20 bottom-0 -z-[1] hidden h-full w-auto max-w-none lg:block xl:left-0"
+    src={DownloadPCBg}
+    alt={'bg'}
+  />
+  <div class="content-container">
+    <div class="ml-auto lg:w-[500px] xl:w-[700px]">
+      <div class="px-4">
+        <!-- 标题 -->
+        <h2 class="text-heading-1 mb-4 font-medium text-white">
+          下载VS TRADER
+        </h2>
 
-  <div class="px-4">
-    <!-- 标题 -->
-    <h2 class="mb-4 text-[30px] font-medium leading-tight text-white">
-      下载VS TRADER
-    </h2>
+        <!-- 描述文字 -->
+        <p class="text-body-md mb-8 leading-relaxed text-white/80">
+          让科技赋能您的每一个决策，不再错过任何重要时刻。设置我们的移动应用程序只需几分钟。
+        </p>
 
-    <!-- 描述文字 -->
-    <p class="mb-8 text-sm leading-relaxed text-white/80">
-      让科技赋能您的每一个决策，不再错过任何重要时刻。设置我们的移动应用程序只需几分钟。
-    </p>
+        <!-- 下载按钮组 -->
+        <div class="mb-8 flex flex-wrap gap-x-3 gap-y-7 lg:mt-28">
+          <a
+            href={downloadPath.google}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src={ButtonGoogle} alt={'google pay'} class="h-[42px]" />
+          </a>
+          <a href={downloadPath.ios} target="_blank" rel="noopener noreferrer">
+            <Image src={ButtonApple} alt={'app store'} class="h-[42px]" />
+          </a>
+          <a
+            href={downloadPath.apk}
+            target="_blank"
+            rel="noopener noreferrer"
+            download="download"
+          >
+            <Image src={ButtonApk} alt={'android'} class="h-[42px]" />
+          </a>
+        </div>
+      </div>
 
-    <!-- 下载按钮组 -->
-    <div class="mb-8 flex flex-wrap gap-x-3 gap-y-7">
-      <a href={downloadPath.google} target="_blank" rel="noopener noreferrer">
-        <Image src={ButtonGoogle} alt={'google pay'} class="h-[42px]" />
-      </a>
-      <a href={downloadPath.ios} target="_blank" rel="noopener noreferrer">
-        <Image src={ButtonApple} alt={'app store'} class="h-[42px]" />
-      </a>
-      <a
-        href={downloadPath.apk}
-        target="_blank"
-        rel="noopener noreferrer"
-        download="download"
-      >
-        <Image src={ButtonApk} alt={'android'} class="h-[42px]" />
-      </a>
+      <!-- 安全提示 -->
+      <p class="text-body-xs absolute bottom-[5%] px-4 text-white lg:static">
+        *请务必 <span class="underline">从官方应用商店或本网站获取应用</span
+        >，谨防第三方仿冒应用。我们绝不会要求您提供密码或短信验证码。
+      </p>
     </div>
   </div>
-
-  <!-- 安全提示 -->
-  <p class="text-body-xs absolute bottom-[5%] px-4 text-white">
-    *请务必 <span class="underline">从官方应用商店或本网站获取应用</span
-    >，谨防第三方仿冒应用。我们绝不会要求您提供密码或短信验证码。
-  </p>
 </section>

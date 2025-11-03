@@ -4,21 +4,46 @@ import IntroImg from '../../assets/home/intro.png'
 import Button from '../Button.astro'
 ---
 
-<section class="bg-white px-6 py-12 md:py-16">
-  <div class="mx-auto max-w-md">
+<section
+  class="section-margin content-container items-center gap-10 md:flex lg:gap-16"
+>
+  <div class="min-w-0 flex-1 lg:py-10">
     <!-- 主标题 -->
-    <h2 class="text-heading-1 mb-6 text-black">VS TRADER</h2>
+    <h2 class="text-heading-1 mb-6 text-black lg:mb-10">VS TRADER</h2>
 
     <!-- 描述文字 -->
-    <p class="text-body-md mb-6 text-black">
-      我们深知，真正的优势不仅在于看见机遇，更在于能否以极致的速度、稳定的性能和绝对的可靠性与之连接。
-      这正是VS TRADER设计的初衷 —
-      为您打造一款机构级的技术工具，让您无论身处何地，都能高效应对市场变化，把握关键时机。
+    <p class="text-body-md mb-6 text-black lg:mb-10">
+      我们深知，真正的优势不仅在于看见机遇，更在于能否以极致的速度、稳定的性能和绝对的可靠性与之连接。<br
+      /><br />
+      <span class="font-bold">这正是VS TRADER设计的初衷</span>
+      <br /> — 为您打造一款机构级的技术工具，让您无论身处何地，都能高效应对市场变化，把握关键时机。
     </p>
 
     <!-- 查看详情按钮 -->
-    <a href="">立即下载</a>
-
-    <Image src={IntroImg} alt="" />
+    <a class="text-body-md group flex items-center gap-2 lg:hidden" href="">
+      立即下载
+      <svg
+        class="h-6 w-6 transition-transform group-hover:translate-x-1"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12H19M19 12L12 5M19 12L12 19"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    <div class="hidden lg:block">
+      <Button>立即下载</Button>
+    </div>
   </div>
+
+  <Image
+    class="mt-16 min-w-0 flex-1 md:mt-0 md:w-100 lg:max-w-[628px]"
+    src={IntroImg}
+    alt=""
+  />
 </section>

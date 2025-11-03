@@ -19,20 +19,23 @@ const features = [
 ]
 ---
 
-<section class="px-6 py-16">
+<section class="py-16">
   <!-- 标题 -->
-  <h2 class="mb-8 text-[22px] font-medium leading-snug text-white">
+  <h2 class="text-heading-2 mb-8 text-white">
     See what<br />being built
   </h2>
 
   <!-- 功能网格 -->
-  <div class="grid grid-cols-2 gap-4">
+  <div
+    class="grid grid-cols-2 gap-x-8 gap-y-5 md:grid-cols-2 md:gap-4 xl:grid-cols-4"
+  >
     {
       features.map((feature) => (
-        <div class="flex items-start gap-3">
-          <div class="flex size-10 items-center justify-center">
+        <div class="flex items-center gap-3 md:rounded-full md:p-4 lg:bg-[#1F2123] lg:p-6">
+          <div class="flex size-12 shrink-0 items-center justify-center lg:size-14">
             {feature.icon === 'integration' && (
               <svg
+                class="lg:size-full"
                 width="35"
                 height="38"
                 viewBox="0 0 35 38"
@@ -51,6 +54,7 @@ const features = [
             )}
             {feature.icon === 'realtime' && (
               <svg
+                class="lg:size-full"
                 width="38"
                 height="38"
                 viewBox="0 0 38 38"
@@ -65,6 +69,7 @@ const features = [
             )}
             {feature.icon === 'interface' && (
               <svg
+                class="lg:size-full"
                 width="35"
                 height="39"
                 viewBox="0 0 35 39"
@@ -87,6 +92,7 @@ const features = [
             )}
             {feature.icon === 'security' && (
               <svg
+                class="lg:size-full"
                 width="35"
                 height="34"
                 viewBox="0 0 35 34"
@@ -121,9 +127,7 @@ const features = [
             )}
           </div>
 
-          <p class="text-sm font-normal leading-relaxed text-white">
-            {feature.title}
-          </p>
+          <p class="text-body-md text-white">{feature.title}</p>
         </div>
       ))
     }

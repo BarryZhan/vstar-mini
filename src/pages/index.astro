@@ -33,7 +33,7 @@ import NewsSection from '../components/home/NewsSection.astro'
     <!-- 全新体验 -->
     <GlobalAdvantages />
 
-    <div class="rounded-card bg-black">
+    <div class="rounded-card rounded-section bg-black">
       <div class="content-container">
         <!-- 用户为中心 - 解决核心痛点 -->
         <UserCentricSection />
@@ -45,11 +45,11 @@ import NewsSection from '../components/home/NewsSection.astro'
 
     <!-- 底部说明区域 -->
     <ClosingSection />
-
-    <!-- 最新动态 -->
-    <NewsSection />
   </main>
 
   <!-- 页脚 -->
-  <Footer />
+  <Footer>
+    <!-- 最新动态 -->
+    <NewsSection />
+  </Footer>
 </Layout>

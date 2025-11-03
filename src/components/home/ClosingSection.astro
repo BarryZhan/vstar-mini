@@ -1,80 +1,36 @@
 ---
+import { Image } from 'astro:assets'
+import Img from '../../assets/home/about.png'
 import Button from '../Button.astro'
-// 结尾说明区域
 ---
 
-<section class="bg-white px-6 py-16">
-  <div class="mx-auto max-w-md">
+<section
+  class="section-margin content-container items-center pt-20 md:flex md:gap-20 lg:gap-40 lg:pb-20 lg:pt-40"
+>
+  <div class="min-w-0 flex-1">
     <!-- 描述文字 -->
-    <p class="mb-8 text-sm leading-relaxed text-black">
+    <p class="text-body-md mb-8 text-black lg:mb-28">
       无论您是严谨的分析师还是忙碌的职场人，VS
       TRADER都是您手中不可或缺的智能工具。它不仅是软件，更是连接机遇、实践策略的可靠伙伴。
     </p>
 
     <!-- 按钮组 -->
-    <div class="flex flex-wrap items-center gap-4">
+    <div class="flex flex-wrap items-center gap-4 lg:gap-8">
       <!-- 关于我们按钮 -->
-      <Button variant="primary" size="sm" href="/about"> 关于我们 </Button>
+      <Button variant="primary" href="/about"> 关于我们 </Button>
 
       <!-- 技术实力链接 -->
       <a
         href="/technology"
-        class="text-sm text-black underline decoration-solid underline-offset-2 transition-opacity hover:opacity-70"
+        class="text-body-md text-black underline decoration-solid underline-offset-2 transition-opacity hover:opacity-70"
       >
         技术实力
       </a>
     </div>
-
-    <!-- 装饰元素 -->
-    <div class="relative mt-12 flex items-center justify-center gap-8">
-      <!-- 左侧装饰 - 奖杯 -->
-      <div
-        class="flex h-32 w-32 items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200"
-      >
-        <svg
-          class="h-16 w-16"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M32 8L36 24L48 16L40 28L56 32L40 36L48 48L36 40L32 56L28 40L16 48L24 36L8 32L24 28L16 16L28 24L32 8Z"
-            fill="#FFD700"></path>
-          <circle cx="32" cy="32" r="8" fill="#FFA500"></circle>
-        </svg>
-      </div>
-
-      <!-- 右侧装饰 - 钻石 -->
-      <div
-        class="flex h-40 w-40 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100"
-      >
-        <svg
-          class="h-20 w-20"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M32 8L48 24L32 56L16 24L32 8Z"
-            fill="url(#diamond-gradient)"
-            stroke="#2649ff"
-            stroke-width="2"></path>
-          <path d="M16 24H48L32 8L16 24Z" fill="#2649ff" opacity="0.3"></path>
-          <defs>
-            <linearGradient
-              id="diamond-gradient"
-              x1="32"
-              y1="8"
-              x2="32"
-              y2="56"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0%" stop-color="#60A5FA"></stop>
-              <stop offset="100%" stop-color="#2649ff"></stop>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-    </div>
   </div>
+  <Image
+    src={Img}
+    alt=""
+    class="mt-10 min-w-0 flex-1 md:mt-0 md:max-w-[496px]"
+  />
 </section>
