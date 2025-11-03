@@ -1,260 +1,42 @@
 ---
 /**
  * 全球合规页面
- * PC端设计
+ *
+ * @description VSTAR全球合规页面,展示监管体系、安全措施和客户保障
  */
 import Layout from '../layouts/Layout.astro'
 import Navigation from '../components/Navigation.astro'
 import Footer from '../components/Footer.astro'
-import Button from '../components/Button.astro'
-import RegulationCard from '../components/compliance/RegulationCard.astro'
-import SecurityFeature from '../components/compliance/SecurityFeature.astro'
-import AsicProtection from '../components/compliance/AsicProtection.astro'
-
-// 监管体系数据
-const regulationData = [
-  {
-    title: '澳大利亚证券与投资委员会(ASIC)监管',
-    status: '已获授权监管',
-    description:
-      '<strong>澳大利亚:</strong> VSTAR Finance Pty Ltd (AFSL 526187) 受澳大利亚证券与投资委员会(ASIC)监管。我们严格遵守其关于公司治理和财务稳健性的高标准要求。',
-    logo: '/images/asic-logo.png', // 需要添加实际图片
-  },
-  {
-    title: '波兰财政部授权的虚拟资产服务提供商',
-    status: '已获授权监管',
-    description:
-      '<strong>欧盟:</strong> VSTAR DIGITAL SP. Z O.O 由波兰财政部授权的虚拟资产服务提供商（VASP，牌照号：8762471601），在MiCA监管下合规运营。',
-    logo: '/images/eu-logo.png', // 需要添加实际图片
-  },
-]
-
-// 安全措施数据
-const securityFeatures = [
-  {
-    title: '数据安全',
-    description:
-      '我们采用银行级的AES-256加密技术保护所有数据传输，并强制推行多重身份验证(MFA)，确保用户信息的安全。我们已通过ISO/IEC 27001:2022认证。',
-    iconName: 'data-security',
-  },
-  {
-    title: '运营安全',
-    description:
-      '我们建立了完善的内部监控和审计流程，并定期接受第三方独立审计，以确保所有操作均符合规范。',
-    iconName: 'operation-security',
-  },
-  {
-    title: '风险提示',
-    description:
-      '所有基于互联网的技术服务均存在潜在风险。我们致力于通过强大的技术手段和管理制度将风险降至最低。',
-    iconName: 'risk-warning',
-  },
-]
-
-// ASIC保障措施数据
-const asicProtections = [
-  {
-    title: '客户资金隔离',
-    description:
-      'ASIC要求将客户资金与公司的运营资金分开存放。这确保了客户的资金不会用于经纪商的运营成本或其他活动，从而在破产或财务困难的情况下保护客户的利益。',
-  },
-  {
-    title: '跟踪审计和报告',
-    description:
-      '金融服务提供商必须定期向ASIC报告，确保透明度和合规性。这一严格的监管确保了经纪商负责任地管理客户资金，并符合监管要求。',
-  },
-  {
-    title: '风险管理和资本储备',
-    description:
-      'ASIC要求经纪商保持完善的风险管理系统和足够的资本储备，确保即使在市场波动的情况下，他们也能够履行对客户的义务。',
-  },
-  {
-    title: '客户赔偿计划',
-    description:
-      'ASIC管理客户赔偿计划，旨在在出现不当行为或财务失败的情况下为消费者提供保护。这些计划为客户提供了一个额外的安全保障，以应对突发问题',
-  },
-  {
-    title: '监管执行',
-    description:
-      'ASIC定期监控并执行合规性，开展调查以确保市场公平，并保护投资者免受欺诈、管理不善和金融不当行为的影响。',
-  },
-]
+import ComplianceHero from '../components/compliance/ComplianceHero.astro'
+import RegulatorySystem from '../components/compliance/RegulatorySystem.astro'
+import SecurityMeasures from '../components/compliance/SecurityMeasures.astro'
+import AsicProtections from '../components/compliance/AsicProtections.astro'
 ---
 
 <Layout
   title="全球合规 - VS TRADER"
   description="在VSTAR，安全与合规是我们一切工作的基石"
 >
-  <!-- 头部英雄区 -->
-  <header
-    class="rounded-header bg-gradient-to-r from-dark via-dark-900 to-dark pb-8 md:pb-12 lg:pb-20"
-  >
-    <Navigation transparent />
+  <!-- 导航栏 -->
+  <Navigation transparent />
 
-    <div
-      class="content-container pb-6 pt-8 md:pb-10 md:pt-12 lg:pb-16 lg:pt-24"
-    >
-      <!-- 页面标题 -->
-      <h1
-        class="mb-4 text-center text-[38px] font-normal leading-tight text-white md:mb-6 md:text-[48px] lg:mb-8 lg:text-[60px]"
-      >
-        全球合规
-      </h1>
+  <!-- Hero 区块 -->
+  <ComplianceHero />
 
-      <!-- 页面描述 -->
-      <p
-        class="text-white/64 mx-auto max-w-[332px] px-4 text-center text-xs leading-relaxed md:max-w-[600px] md:px-0 md:text-sm md:text-white/70 lg:max-w-[784px] lg:text-base"
-      >
-        在VSTAR，安全与合规是我们一切工作的基石。我们承诺以最高标准要求自己，严格遵守运营所在地的法律法规，并接受多重国际监管机构的监督，以确保我们的技术和服务始终处于最安全、最可靠的状态。
-      </p>
-
-      <!-- CTA按钮 -->
-      <div class="mt-6 flex justify-center md:mt-8 lg:mt-12">
-        <Button href="/contact" variant="primary" size="md"> 联系我们 </Button>
-      </div>
-    </div>
-  </header>
-
-  <main class="content-container py-12 md:py-16 lg:py-20">
-    <!-- 监管体系区块 -->
-    <section class="mb-12 md:mb-16 lg:mb-32">
-      <div
-        class="mb-8 flex flex-col items-start justify-between gap-4 md:mb-12 md:gap-6 lg:mb-20 lg:flex-row lg:gap-16"
-      >
-        <!-- 左侧标题和描述 -->
-        <div class="flex flex-col gap-2 md:gap-3 lg:max-w-[668px] lg:gap-6">
-          <h2
-            class="text-[30px] font-medium leading-tight text-black md:text-[48px] lg:text-[68px]"
-          >
-            监管体系
-          </h2>
-          <p class="text-sm text-black md:text-lg lg:text-2xl">
-            我们构建了多层次、国际化的合规架构：
-          </p>
-        </div>
-
-        <!-- 右侧其他地区说明 -->
-        <div class="lg:max-w-[452px]">
-          <p class="text-sm leading-relaxed text-black md:text-base lg:text-xl">
-            <strong>其他地区:</strong><br />
-            我们在全球其他地区运营的实体也均致力于遵循当地最严格的合规要求
-          </p>
-        </div>
-      </div>
-
-      <!-- 监管卡片网格 -->
-      <div class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-2 lg:gap-10">
-        {
-          regulationData.map((regulation) => (
-            <RegulationCard
-              title={regulation.title}
-              status={regulation.status}
-              description={regulation.description}
-              logo={regulation.logo}
-            />
-          ))
-        }
-      </div>
-    </section>
-
-    <!-- 安全措施区块 -->
-    <section class="relative mb-12 md:mb-16 lg:mb-32">
-      <!-- 背景容器 -->
-      <div
-        class="-mx-6 w-screen rounded-[40px] bg-black py-12 md:-mx-12 md:rounded-[50px] md:py-16 lg:-mx-20 lg:rounded-[60px] lg:py-24"
-      >
-        <!-- 背景世界地图装饰 - 可选 -->
-        <div
-          class="absolute inset-0 overflow-hidden rounded-[40px] opacity-10 md:rounded-[50px] lg:rounded-[60px]"
-        >
-          <!-- 这里可以添加世界地图SVG作为背景装饰 -->
-        </div>
-
-        <div class="content-container relative z-10">
-          <!-- 区块标题 -->
-          <h2
-            class="mb-8 text-center text-[30px] font-medium leading-tight text-white md:mb-12 md:text-[48px] lg:mb-20 lg:text-[68px]"
-          >
-            安全措施
-          </h2>
-
-          <!-- 安全特性网格 -->
-          <div
-            class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10 lg:grid-cols-3 lg:gap-20"
-          >
-            {
-              securityFeatures.map((feature) => (
-                <SecurityFeature
-                  title={feature.title}
-                  description={feature.description}
-                  iconName={feature.iconName}
-                >
-                  <div
-                    slot="icon"
-                    class="h-6 w-6 rounded bg-white/10 md:h-8 md:w-8 lg:h-10 lg:w-10"
-                  />
-                </SecurityFeature>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ASIC如何保障客户区块 -->
-    <section class="pt-8 md:pt-12 lg:pt-20">
-      <!-- 区块标题 -->
-      <h2
-        class="mb-8 text-center text-[30px] font-medium leading-tight text-black md:mb-12 md:text-[48px] lg:mb-20 lg:text-[68px]"
-      >
-        ASIC如何保障客户
-      </h2>
-
-      <!-- 保障措施网格 - 移动端全部单列，PC端前3个三列，后2个两列 -->
-      <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
-        <!-- 第一行3个 -->
-        <div
-          class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-10"
-        >
-          {
-            asicProtections.slice(0, 3).map((protection) => (
-              <AsicProtection
-                title={protection.title}
-                description={protection.description}
-              >
-                <div
-                  slot="icon"
-                  class="h-5 w-5 rounded bg-white/30 md:h-6 md:w-6 lg:h-8 lg:w-8"
-                />
-              </AsicProtection>
-            ))
-          }
-        </div>
-
-        <!-- 第二行2个 -->
-        <div class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-2 lg:gap-10">
-          {
-            asicProtections.slice(3).map((protection) => (
-              <AsicProtection
-                title={protection.title}
-                description={protection.description}
-              >
-                <div
-                  slot="icon"
-                  class="h-5 w-5 rounded bg-white/30 md:h-6 md:w-6 lg:h-8 lg:w-8"
-                />
-              </AsicProtection>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+  <!-- 主要内容 -->
+  <main class="content-container">
+    <!-- 监管体系 -->
+    <RegulatorySystem />
   </main>
 
+  <!-- 安全措施 -->
+  <SecurityMeasures />
+
+  <!-- ASIC保障客户 -->
+  <main class="content-container">
+    <AsicProtections />
+  </main>
+
+  <!-- 页脚 -->
   <Footer />
 </Layout>
-
-<style>
-  /* 如果需要添加特殊样式 */
-</style>

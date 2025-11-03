@@ -34,12 +34,19 @@
 
     /* 三级标题 - 用于卡片标题 */
     .text-heading-3 {
-        @apply text-xl md:text-[28px] lg:text-[36px] font-medium;
+        @apply text-xl md:text-[28px] lg:text-[36px] font-medium leading-tight;
     }
 
     /* 四级标题 - 用于小卡片/列表标题 */
     .text-heading-4 {
-        @apply text-base md:text-[26px] lg:text-[38px] font-medium leading-tight;
+        @apply text-base md:text-[26px] lg:text-[30px] font-medium leading-tight;
+    }
+
+    .heading-margin {
+        @apply md:mb-12 lg:mb-20 mb-8;
+    }
+    .section-margin {
+        @apply md:mb-30 lg:mb-40 mb-20;
     }
 
     /* ==================== 正文字体类 ==================== */
@@ -54,12 +61,12 @@
 
     /* 中等正文 - 用于一般内容 */
     .text-body-md {
-        @apply text-sm md:text-base lg:text-lg leading-relaxed;
+        @apply text-sm md:text-base lg:text-xl leading-relaxed;
     }
 
     /* 小正文 - 用于辅助文字 */
     .text-body-sm {
-        @apply text-xs md:text-sm lg:text-base leading-relaxed;
+        @apply text-xs md:text-sm lg:text-lg leading-relaxed;
     }
 
     /* 超小文字 - 用于说明文字 */

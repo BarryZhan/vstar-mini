@@ -1,0 +1,82 @@
+---
+/**
+ * 安全措施区块组件
+ *
+ * @description 展示VSTAR的多重安全保障措施
+ */
+import { Image } from 'astro:assets'
+import SecurityBgImage from '../../assets/compliance/world.png'
+import SecurityPCBgImage from '../../assets/compliance/world-pc.png'
+import SecurityFeature from './SecurityFeature.astro'
+
+// 安全措施数据
+const securityFeatures = [
+  {
+    title: '数据安全',
+    description:
+      '我们采用银行级的AES-256加密技术保护所有数据传输,并强制推行多重身份验证(MFA),确保用户信息的安全。我们已通过ISO/IEC 27001:2022认证。',
+    iconName: 'data-security',
+  },
+  {
+    title: '运营安全',
+    description:
+      '我们建立了完善的内部监控和审计流程,并定期接受第三方独立审计,以确保所有操作均符合规范。',
+    iconName: 'operation-security',
+  },
+  {
+    title: '风险提示',
+    description:
+      '所有基于互联网的技术服务均存在潜在风险。我们致力于通过强大的技术手段和管理制度将风险降至最低。',
+    iconName: 'risk-warning',
+  },
+]
+---
+
+<!-- 安全措施区块 -->
+<section class="relative section-margin">
+  <!-- 背景容器 -->
+  <div
+    class="w-full rounded-[40px] bg-black py-16 md:rounded-[50px] md:py-16 lg:rounded-[60px] overflow-hidden lg:pt-40 lg:pb-30"
+  >
+
+    <Image
+      src={SecurityBgImage}
+      alt=""
+      class="w-full absolute left-0 top-0 lg:hidden"
+      loading="lazy"
+    />
+    <Image
+      src={SecurityPCBgImage}
+      alt=""
+      class="w-full absolute left-0 top-0 hidden lg:block"
+      loading="lazy"
+    />
+
+    <div class="px-2">
+      <div class="content-container relative z-10">
+        <!-- 区块标题 -->
+        <h2
+          class="text-center text-white text-heading-1 heading-margin"
+        >
+          安全措施
+        </h2>
+
+        <!-- 安全特性网格 -->
+        <div
+          class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12 lg:grid-cols-3 lg:gap-20 lg:mt-30"
+        >
+          {
+            securityFeatures.map((feature) => (
+              <SecurityFeature
+                title={feature.title}
+                description={feature.description}
+                iconName={feature.iconName}
+              >
+              </SecurityFeature>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

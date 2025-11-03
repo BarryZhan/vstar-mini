@@ -1,0 +1,90 @@
+---
+/**
+ * ASIC如何保障客户区块组件
+ *
+ * @description 展示ASIC为客户提供的多重保障措施
+ */
+import AsicProtection from './AsicProtection.astro'
+
+// 导入图标资源
+import fundIsolationIcon from '../../assets/icons/asic/fund-isolation.png'
+import auditReportIcon from '../../assets/icons/asic/audit-report.png'
+import riskManagementIcon from '../../assets/icons/asic/risk-management.png'
+import compensationIcon from '../../assets/icons/asic/compensation.png'
+import regulatoryEnforcementIcon from '../../assets/icons/asic/regulatory-enforcement.png'
+
+// ASIC保障措施数据
+const asicProtections = [
+  {
+    title: '客户资金隔离',
+    description:
+      'ASIC要求将客户资金与公司的运营资金分开存放。这确保了客户的资金不会用于经纪商的运营成本或其他活动,从而在破产或财务困难的情况下保护客户的利益。',
+    icon: fundIsolationIcon,
+  },
+  {
+    title: '跟踪审计和报告',
+    description:
+      '金融服务提供商必须定期向ASIC报告,确保透明度和合规性。这一严格的监管确保了经纪商负责任地管理客户资金,并符合监管要求。',
+    icon: auditReportIcon,
+  },
+  {
+    title: '风险管理和资本储备',
+    description:
+      'ASIC要求经纪商保持完善的风险管理系统和足够的资本储备,确保即使在市场波动的情况下,他们也能够履行对客户的义务。',
+    icon: riskManagementIcon,
+  },
+  {
+    title: '客户赔偿计划',
+    description:
+      'ASIC管理客户赔偿计划,旨在在出现不当行为或财务失败的情况下为消费者提供保护。这些计划为客户提供了一个额外的安全保障,以应对突发问题',
+    icon: compensationIcon,
+  },
+  {
+    title: '监管执行',
+    description:
+      'ASIC定期监控并执行合规性,开展调查以确保市场公平,并保护投资者免受欺诈、管理不善和金融不当行为的影响。',
+    icon: regulatoryEnforcementIcon,
+  },
+]
+---
+
+<!-- ASIC如何保障客户区块 -->
+<section class="section-margin">
+  <!-- 区块标题 -->
+  <h2
+    class="text-center font-medium text-black text-heading-1 heading-margin"
+  >
+    ASIC如何保障客户
+  </h2>
+
+  <!-- 保障措施网格 - 移动端全部单列,PC端前3个三列,后2个两列 -->
+  <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
+    <!-- 第一行3个 -->
+    <div
+      class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3 lg:gap-8"
+    >
+      {
+        asicProtections.slice(0, 3).map((protection) => (
+          <AsicProtection
+            title={protection.title}
+            description={protection.description}
+            icon={protection.icon}
+          />
+        ))
+      }
+    </div>
+
+    <!-- 第二行2个 -->
+    <div class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-2 lg:gap-8">
+      {
+        asicProtections.slice(3).map((protection) => (
+          <AsicProtection
+            title={protection.title}
+            description={protection.description}
+            icon={protection.icon}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

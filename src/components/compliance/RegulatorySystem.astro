@@ -1,0 +1,64 @@
+---
+/**
+ * 监管体系区块组件
+ *
+ * @description 展示VSTAR的多层次、国际化监管架构
+ */
+import RegulationCard from './RegulationCard.astro'
+import AsicLogo from '../../assets/compliance/asic-logo.png'
+import EuLogo from '../../assets/compliance/eu-logo.png'
+// 监管体系数据
+const regulationData = [
+  {
+    title: '澳大利亚证券与投资委员会(ASIC)监管',
+    name: '澳大利亚:',
+    description:
+      'VSTAR Finance Pty Ltd (AFSL 526187) 受澳大利亚证券与投资委员会(ASIC)监管。我们严格遵守其关于公司治理和财务稳健性的高标准要求。',
+    logo: AsicLogo,
+  },
+  {
+    title: '波兰财政部授权的虚拟资产服务提供商',
+    name: '欧盟:',
+    description:
+      'VSTAR DIGITAL SP. Z O.O 由波兰财政部授权的虚拟资产服务提供商(VASP,牌照号:8762471601),在MiCA监管下合规运营。',
+    logo: EuLogo,
+  },
+]
+---
+
+<!-- 监管体系区块 -->
+<section class="section-margin">
+  <div
+    class="mb-8 flex text-black flex-col justify-between lg:items-center gap-4 md:mb-12 md:gap-6 lg:mb-20 lg:flex-row lg:gap-16"
+  >
+    <!-- 左侧标题和描述 -->
+    <div class="lg:max-w-[668px]">
+      <h2 class="text-heading-1 ">监管体系</h2>
+      <p class="text-body-md mt-2 md:mt-3 lg:mt-0">
+        我们构建了多层次、国际化的合规架构:
+      </p>
+    </div>
+
+    <!-- 右侧其他地区说明 -->
+    <div class="lg:max-w-[452px]">
+      <p class="text-body-md">
+        其他地区:<br />
+        我们在全球其他地区运营的实体也均致力于遵循当地最严格的合规要求
+      </p>
+    </div>
+  </div>
+
+  <!-- 监管卡片网格 -->
+  <div class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-2 lg:gap-9">
+    {
+      regulationData.map((regulation) => (
+        <RegulationCard
+          title={regulation.title}
+          name={regulation.name}
+          description={regulation.description}
+          logo={regulation.logo}
+        />
+      ))
+    }
+  </div>
+</section>

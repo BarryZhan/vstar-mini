@@ -1,0 +1,36 @@
+---
+/**
+ * 全球合规页面 - 英雄区组件
+ *
+ * @description 展示页面标题、描述和CTA按钮
+ */
+import Button from '../Button.astro'
+---
+
+<!-- 头部英雄区 -->
+<header
+  class="rounded-header bg-gradient-to-r from-dark via-dark-900 to-dark pb-8 md:pb-12 lg:pb-20 section-margin"
+>
+  <div
+    class="content-container pb-6 pt-8 md:pb-10 md:pt-12 lg:pb-16 lg:pt-24"
+  >
+    <!-- 页面标题 -->
+    <h1
+      class="mb-4 text-center text-[38px] font-normal leading-tight text-white md:mb-6 md:text-[48px] lg:mb-8 lg:text-[60px]"
+    >
+      全球合规
+    </h1>
+
+    <!-- 页面描述 -->
+    <p
+      class="text-white/64 mx-auto max-w-[332px] px-4 text-center text-xs leading-relaxed md:max-w-[600px] md:px-0 md:text-sm md:text-white/70 lg:max-w-[784px] lg:text-base"
+    >
+      在VSTAR,安全与合规是我们一切工作的基石。我们承诺以最高标准要求自己,严格遵守运营所在地的法律法规,并接受多重国际监管机构的监督,以确保我们的技术和服务始终处于最安全、最可靠的状态。
+    </p>
+
+    <!-- CTA按钮 -->
+    <div class="mt-6 flex justify-center md:mt-8 lg:mt-12">
+      <Button href="/contact" variant="primary" size="md"> 联系我们 </Button>
+    </div>
+  </div>
+</header>
