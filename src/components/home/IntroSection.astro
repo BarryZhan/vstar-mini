@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets'
+import IntroImg from '../../assets/home/intro.png'
+import Button from '../Button.astro'
+---
+
+<section class="bg-white px-6 py-12 md:py-16">
+  <div class="mx-auto max-w-md">
+    <!-- 主标题 -->
+    <h2 class="text-heading-1 mb-6 text-black">VS TRADER</h2>
+
+    <!-- 描述文字 -->
+    <p class="text-body-md mb-6 text-black">
+      我们深知，真正的优势不仅在于看见机遇，更在于能否以极致的速度、稳定的性能和绝对的可靠性与之连接。
+      这正是VS TRADER设计的初衷 —
+      为您打造一款机构级的技术工具，让您无论身处何地，都能高效应对市场变化，把握关键时机。
+    </p>
+
+    <!-- 查看详情按钮 -->
+    <a href="">立即下载</a>
+
+    <Image src={IntroImg} alt="" />
+  </div>
+</section>

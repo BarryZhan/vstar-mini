@@ -33,37 +33,34 @@ const securityFeatures = [
 ---
 
 <!-- 安全措施区块 -->
-<section class="relative section-margin">
+<section class="section-margin relative">
   <!-- 背景容器 -->
   <div
-    class="w-full rounded-[40px] bg-black py-16 md:rounded-[50px] md:py-16 lg:rounded-[60px] overflow-hidden lg:pt-40 lg:pb-30"
+    class="w-full overflow-hidden rounded-[40px] bg-black py-16 md:rounded-[50px] md:py-16 lg:rounded-[60px] lg:pb-30 lg:pt-40"
   >
-
     <Image
       src={SecurityBgImage}
       alt=""
-      class="w-full absolute left-0 top-0 lg:hidden"
+      class="absolute left-0 top-0 w-full lg:hidden"
       loading="lazy"
     />
     <Image
       src={SecurityPCBgImage}
       alt=""
-      class="w-full absolute left-0 top-0 hidden lg:block"
+      class="absolute left-0 top-0 hidden w-full lg:block"
       loading="lazy"
     />
 
     <div class="px-2">
       <div class="content-container relative z-10">
         <!-- 区块标题 -->
-        <h2
-          class="text-center text-white text-heading-1 heading-margin"
-        >
+        <h2 class="text-heading-1 heading-margin text-center text-white">
           安全措施
         </h2>
 
         <!-- 安全特性网格 -->
         <div
-          class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12 lg:grid-cols-3 lg:gap-20 lg:mt-30"
+          class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12 lg:mt-30 lg:grid-cols-3 lg:gap-20"
         >
           {
             securityFeatures.map((feature) => (
@@ -71,8 +68,7 @@ const securityFeatures = [
                 title={feature.title}
                 description={feature.description}
                 iconName={feature.iconName}
-              >
-              </SecurityFeature>
+              />
             ))
           }
         </div>

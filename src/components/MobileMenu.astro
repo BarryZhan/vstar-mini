@@ -1,0 +1,141 @@
+---
+import Logo from '../assets/logo.svg'
+import CloseIcon from '../assets/close-icon.svg'
+import SearchIcon from '../assets/search-icon.svg'
+import ChevronRight from '../assets/chevron-right.svg'
+
+const menuItems = [
+  { label: '首页', href: '/' },
+  { label: '关于我们', href: '/about' },
+  { label: '全球合规', href: '/compliance' },
+  { label: '技术愿景', href: '/technology' },
+  { label: '联系我们', href: '/contact' },
+]
+---
+
+<!-- 遮罩层 -->
+<div
+  id="mobile-menu-overlay"
+  class="pointer-events-none fixed inset-0 z-40 bg-black/50 opacity-0 transition-opacity duration-300"
+>
+</div>
+
+<!-- 移动端菜单 - 从导航栏下方开始 -->
+<div
+  id="mobile-menu"
+  class="fixed left-0 right-0 top-[68px] z-40 flex flex-col bg-white transition-transform duration-300 ease-out"
+  style="transform: translateY(-100%); height: calc(100vh - 68px);"
+>
+  <!-- 白色内容区域 -->
+  <div class="flex flex-col gap-4 bg-white px-0 py-4">
+    <!-- 搜索框 -->
+    <div class="px-4">
+      <div
+        class="flex items-center gap-2 rounded-full border border-[#efefef] bg-white px-3 py-2"
+      >
+        <SearchIcon class="h-4 w-4 text-[#0e0a1d]" />
+        <input
+          type="text"
+          placeholder="Search anything"
+          class="flex-1 text-base text-[#868687] outline-none placeholder:text-[#868687]"
+        />
+      </div>
+    </div>
+
+    <!-- 菜单项列表 -->
+    <div class="flex flex-col px-2">
+      {
+        menuItems.map((item) => (
+          <a
+            href={item.href}
+            class="flex items-center justify-between rounded-[55px] px-3 py-3 transition-colors hover:bg-gray-50"
+          >
+            <span class="text-sm font-bold uppercase text-black">
+              {item.label}
+            </span>
+            <div class="flex h-[18px] w-[18px] items-center justify-center">
+              <ChevronRight class="h-[18px] w-[18px] text-black" />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- 登录/注册按钮 -->
+    <div class="flex flex-col gap-2 px-4">
+      <button
+        class="flex items-center justify-center gap-1 rounded-lg bg-[#2649ff] px-4 py-[3px] transition-opacity hover:opacity-90"
+      >
+        <span class="text-sm font-medium leading-[29.54px] text-white"
+          >登录</span
+        >
+      </button>
+      <button
+        class="flex items-center justify-center gap-1 rounded-lg bg-black/5 px-4 py-[3px] transition-opacity hover:opacity-90"
+      >
+        <span class="text-sm font-medium leading-[29.54px] text-black"
+          >注册账户</span
+        >
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 移动端菜单控制
+  const mobileMenu = document.getElementById('mobile-menu')
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay')
+
+  // 打开菜单
+  function openMenu() {
+    if (mobileMenu && mobileMenuOverlay) {
+      // 显示遮罩
+      mobileMenuOverlay.style.pointerEvents = 'auto'
+      mobileMenuOverlay.style.opacity = '1'
+
+      // 显示菜单（从上到下滑入）
+      mobileMenu.style.transform = 'translateY(0)'
+
+      // 防止背景滚动
+      document.body.style.overflow = 'hidden'
+    }
+  }
+
+  // 关闭菜单
+  function closeMenu() {
+    if (mobileMenu && mobileMenuOverlay) {
+      // 隐藏遮罩
+      mobileMenuOverlay.style.opacity = '0'
+      setTimeout(() => {
+        mobileMenuOverlay.style.pointerEvents = 'none'
+      }, 300)
+
+      // 隐藏菜单（向上滑出）
+      mobileMenu.style.transform = 'translateY(-100%)'
+
+      // 恢复背景滚动
+      document.body.style.overflow = ''
+
+      // 重置导航栏图标
+      const menuIcon = document.getElementById('menu-icon')
+      const closeIcon = document.getElementById('close-icon')
+      if (menuIcon && closeIcon) {
+        menuIcon.style.opacity = '1'
+        closeIcon.style.opacity = '0'
+      }
+    }
+  }
+
+  // 点击遮罩层关闭
+  mobileMenuOverlay?.addEventListener('click', closeMenu)
+
+  // 点击菜单项后关闭菜单
+  const menuLinks = mobileMenu?.querySelectorAll('a')
+  menuLinks?.forEach((link) => {
+    link.addEventListener('click', closeMenu)
+  })
+
+  // 暴露函数到全局
+  ;(window as any).openMobileMenu = openMenu
+  ;(window as any).closeMobileMenu = closeMenu
+</script>

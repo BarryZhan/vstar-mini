@@ -2,7 +2,7 @@
 /**
  * 时间轴节点组件
  *
- * @description 展示单个时间节点，包含时间、标题和描述
+ * @description 展示单个时间节点，包含时间、标题和描述，左右交替布局
  */
 
 interface Props {
@@ -10,38 +10,77 @@ interface Props {
   time: string
   /** 事件标题 */
   title: string
-  /** 节点位置：top（上方）或 bottom（下方） */
-  position: 'top' | 'bottom'
+  /** 节点位置：left（左侧）或 right（右侧） */
+  position: 'left' | 'right'
+  /** 是否为最后一个节点 */
+  isLast?: boolean
 }
 
-const { time, title, position } = Astro.props
+const { time, title, position, isLast = false } = Astro.props
 ---
 
-<div class={`timeline-node relative ${position === 'top' ? 'mb-20' : 'mt-20'}`}>
-  <!-- 时间节点圆圈 -->
-  <div
-    class="absolute left-0 top-0 h-5 w-5 rounded-full bg-primary ring-4 ring-white"
-  >
-  </div>
+<div class="relative flex w-full items-center">
+  {
+    position === 'right' ? (
+      <>
+        {/* 中心圆圈 */}
+        <div
+          class="relative z-10 flex-shrink-0"
+          style="margin-left: calc(50% - 11px)"
+        >
+          {/* 外圆圈 */}
+          <div class="flex h-[21px] w-[21px] items-center justify-center rounded-full border-2 border-[#474747] bg-white">
+            {/* 内圆圈 */}
+            <div class="h-[11px] w-[11px] rounded-full bg-[#474747]" />
+          </div>
+        </div>
 
-  <!-- 内容卡片 -->
-  <div class={`ml-8 ${position === 'top' ? '-translate-y-full pb-8' : 'pt-8'}`}>
-    <!-- 时间标签 -->
-    <div
-      class="mb-3 text-[18px] font-bold text-primary md:text-[20px] lg:text-[24px]"
-    >
-      {time}
-    </div>
+        {/* 水平连接线 */}
+        <div class="relative h-0.5 w-[23px] flex-shrink-0 bg-[#474747]">
+          {/* 末端装饰点 */}
+          <div class="absolute right-0 top-1/2 h-[7px] w-[7px] -translate-y-1/2 translate-x-1/2 rounded-full bg-[#474747]" />
+        </div>
 
-    <!-- 事件标题 -->
-    <div
-      class="max-w-[200px] rounded-lg bg-white p-4 shadow-md lg:max-w-[240px]"
-    >
-      <p
-        class="text-[14px] leading-relaxed text-dark md:text-[15px] lg:text-[16px]"
-      >
-        {title}
-      </p>
-    </div>
-  </div>
+        {/* 右侧内容 */}
+        <div class="flex-1 pl-3">
+          <div class="text-sm font-normal text-dark md:text-[22px]">{time}</div>
+          <div class="mt-1.5 max-w-[200px] text-xs text-dark md:max-w-[125px] md:text-[15px]">
+            {title}
+          </div>
+        </div>
+      </>
+    ) : (
+      <>
+        {/* 左侧内容 */}
+        <div class="flex-1 pr-3 text-right">
+          <div class="ml-auto max-w-[200px] md:max-w-[125px]">
+            <div class="text-sm font-normal text-dark md:text-[22px]">
+              {time}
+            </div>
+            <div class="mt-1.5 text-xs leading-relaxed text-dark md:text-[15px]">
+              {title}
+            </div>
+          </div>
+        </div>
+
+        {/* 水平连接线 */}
+        <div class="relative h-0.5 w-[23px] flex-shrink-0 bg-[#474747]">
+          {/* 末端装饰点 */}
+          <div class="absolute left-0 top-1/2 h-[7px] w-[7px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#474747]" />
+        </div>
+
+        {/* 中心圆圈 */}
+        <div
+          class="relative z-10 flex-shrink-0"
+          style="margin-right: calc(50% - 11px)"
+        >
+          {/* 外圆圈 */}
+          <div class="flex h-[21px] w-[21px] items-center justify-center rounded-full border-2 border-[#474747] bg-white">
+            {/* 内圆圈 */}
+            <div class="h-[11px] w-[11px] rounded-full bg-[#474747]" />
+          </div>
+        </div>
+      </>
+    )
+  }
 </div>

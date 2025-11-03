@@ -1,11 +1,11 @@
 ---
-import AdvantageCard from './AdvantageCard.astro'
 import UserInterfaceIcon from '../../assets/home/icon-user-interface.png'
 import AccessibilityIcon from '../../assets/home/icon-accessibility.png'
 import SecurityIcon from '../../assets/home/icon-security.png'
 import RealtimeQuotesIcon from '../../assets/home/icon-realtime-quotes.png'
 import PerformanceIcon from '../../assets/home/icon-performance.png'
 import MonitoringIcon from '../../assets/home/icon-monitoring.png'
+import AsicProtection from '../compliance/AsicProtection.astro'
 
 // 优势数据
 const advantages = [
@@ -48,14 +48,22 @@ const advantages = [
 ]
 ---
 
-<section class="page-main bg-white">
+<section class="content-container section-margin">
   <!-- 标题 -->
-  <h2 class="section-title mb-8 md:mb-12 lg:mb-16">全新体验</h2>
+  <h2 class="section-title title-margin">全新体验</h2>
 
   <!-- 优势卡片网格 -->
   <div
     class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8"
   >
-    {advantages.map((advantage) => <AdvantageCard {...advantage} />)}
+    {
+      advantages.map((advantage) => (
+        <AsicProtection
+          title={advantage.title}
+          description={advantage.description}
+          icon={advantage.icon}
+        />
+      ))
+    }
   </div>
 </section>

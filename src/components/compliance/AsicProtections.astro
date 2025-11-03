@@ -51,39 +51,39 @@ const asicProtections = [
 <!-- ASIC如何保障客户区块 -->
 <section class="section-margin">
   <!-- 区块标题 -->
-  <h2
-    class="text-center font-medium text-black text-heading-1 heading-margin"
-  >
+  <h2 class="text-heading-1 heading-margin text-center font-medium text-black">
     ASIC如何保障客户
   </h2>
 
   <!-- 保障措施网格 - 移动端全部单列,PC端前3个三列,后2个两列 -->
   <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
     <!-- 第一行3个 -->
-    <div
-      class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3 lg:gap-8"
-    >
+    <div class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3 lg:gap-8">
       {
-        asicProtections.slice(0, 3).map((protection) => (
-          <AsicProtection
-            title={protection.title}
-            description={protection.description}
-            icon={protection.icon}
-          />
-        ))
+        asicProtections
+          .slice(0, 3)
+          .map((protection) => (
+            <AsicProtection
+              title={protection.title}
+              description={protection.description}
+              icon={protection.icon}
+            />
+          ))
       }
     </div>
 
     <!-- 第二行2个 -->
     <div class="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-2 lg:gap-8">
       {
-        asicProtections.slice(3).map((protection) => (
-          <AsicProtection
-            title={protection.title}
-            description={protection.description}
-            icon={protection.icon}
-          />
-        ))
+        asicProtections
+          .slice(3)
+          .map((protection) => (
+            <AsicProtection
+              title={protection.title}
+              description={protection.description}
+              icon={protection.icon}
+            />
+          ))
       }
     </div>
   </div>

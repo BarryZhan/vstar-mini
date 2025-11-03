@@ -2,20 +2,6 @@
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
-/**
- * ASIC保障措施卡片组件
- *
- * @description 展示ASIC如何保障客户的各项措施
- * @example
- * import fundIsolationIcon from '@/assets/icons/asic/fund-isolation.svg'
- * <AsicProtection
- *   title="客户资金隔离"
- *   description="ASIC要求将客户资金与公司的运营资金分开存放..."
- *   icon={fundIsolationIcon}
- *   iconBgColor="bg-primary"
- * />
- */
-
 interface Props {
   /** 保障措施标题 */
   title: string
@@ -31,7 +17,7 @@ const { title, description, icon, iconBgColor = 'bg-primary' } = Astro.props
 ---
 
 <div
-  class="rounded-card flex h-[253px] lg:h-[400px] flex-col bg-light-bg p-8 rounded-[18px] lg:rounded-[32px] lg:p-10"
+  class="rounded-card group flex h-[253px] flex-col rounded-[18px] bg-light-bg p-8 transition-all hover:shadow-lg lg:h-[400px] lg:rounded-[32px] lg:p-10"
 >
   <!-- 图标 -->
   <div class="mb-4 md:mb-6 lg:mb-8">
@@ -41,20 +27,22 @@ const { title, description, icon, iconBgColor = 'bg-primary' } = Astro.props
       <Image
         src={icon}
         alt=""
-        class="size-full"
+        class="size-full transition-all group-hover:scale-110"
       />
     </div>
   </div>
 
   <!-- 标题 -->
   <h3
-    class=" font-normal leading-tight text-black text-heading-3 lg:mt-14 lg:whitespace-normal"
+    class="text-heading-3 font-normal leading-tight text-black lg:mt-14 lg:whitespace-normal"
   >
     {title}
   </h3>
 
   <!-- 描述 -->
-  <p class="text-sm leading-relaxed text-black md:text-sm lg:text-base mt-auto lg:mt-6">
+  <p
+    class="mt-auto text-sm leading-relaxed text-black md:text-sm lg:mt-6 lg:text-base"
+  >
     {description}
   </p>
 </div>

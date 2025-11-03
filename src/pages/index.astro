@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro'
 import Navigation from '../components/Navigation.astro'
 import Footer from '../components/Footer.astro'
 import HeroSection from '../components/home/HeroSection.astro'
-import ProductShowcase from '../components/home/ProductShowcase.astro'
+import IntroSection from '../components/home/IntroSection.astro'
+import DownloadSection from '../components/home/DownloadSection.astro'
 import GlobalAdvantages from '../components/home/GlobalAdvantages.astro'
-import CoreTech from '../components/home/CoreTech.astro'
-import TradingTools from '../components/home/TradingTools.astro'
-import GlobalCompliance from '../components/home/GlobalCompliance.astro'
+import UserCentricSection from '../components/home/UserCentricSection.astro'
+import BuildingSection from '../components/home/BuildingSection.astro'
+import ClosingSection from '../components/home/ClosingSection.astro'
+import NewsSection from '../components/home/NewsSection.astro'
 ---
 
 <Layout
@@ -22,22 +24,30 @@ import GlobalCompliance from '../components/home/GlobalCompliance.astro'
 
   <!-- 主要内容 -->
   <main>
-    <!-- 产品展示 -->
-    <ProductShowcase />
+    <!-- VS TRADER 介绍 + 统计数据 -->
+    <IntroSection />
+
+    <!-- 下载应用区域 -->
+    <DownloadSection />
 
     <!-- 全新体验 -->
     <GlobalAdvantages />
 
-    <!-- 核心技术 -->
-    <div class="page-main">
-      <CoreTech />
+    <div class="rounded-card bg-black">
+      <div class="content-container">
+        <!-- 用户为中心 - 解决核心痛点 -->
+        <UserCentricSection />
+
+        <!-- See what being built -->
+        <BuildingSection />
+      </div>
     </div>
 
-    <!-- 交易工具 -->
-    <TradingTools />
+    <!-- 底部说明区域 -->
+    <ClosingSection />
 
-    <!-- 全球合规 -->
-    <GlobalCompliance />
+    <!-- 最新动态 -->
+    <NewsSection />
   </main>
 
   <!-- 页脚 -->
