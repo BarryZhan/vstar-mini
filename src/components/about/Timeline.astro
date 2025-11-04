@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+import MapImage from '../../assets/about/map.png'
 /**
  * 发展历程时间轴组件
  *
@@ -61,8 +63,9 @@ const milestones = [
       发展历程
     </h2>
 
+    <Image src={MapImage} class="hidden md:block" alt="" />
     <!-- 时间轴容器 -->
-    <div class="relative mx-auto max-w-2xl px-4 md:px-6 lg:px-8">
+    <div class="relative mx-auto max-w-2xl px-4 md:hidden md:px-6 lg:px-8">
       <!-- 垂直时间轴线 - 居中显示 -->
       <div
         class="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-[#474747]"
