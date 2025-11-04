@@ -46,16 +46,18 @@ const comparisonFeatures = [
 ]
 ---
 
-<section class="mt-12 md:mt-20 lg:mt-28">
-  <h2 class="section-title">平台对比矩阵</h2>
+<section class="section-margin">
+  <div class="content-container">
+    <h2 class="text-heading-1  text-center mb-3 md:mb-5 lg:mb-8">平台对比矩阵</h2>
 
-  <!-- 说明文字 -->
-  <p
-    class="text-body-sm md:text-body-md spacing-block mx-auto -mt-4 max-w-4xl px-2 text-center leading-relaxed md:-mt-6"
-  >
-    我们在全球关键金融枢纽部署了多个高性能数据中心，包括香港、东京、伦敦和纽约，构建了低延迟、高冗余的全球私有网络。这一网络确保了我们的服务具备极高的可用性和稳定性，系统可用性达到99.99%。
-  </p>
+    <!-- 说明文字 -->
+    <p
+      class="text-body-sm md:text-body-md spacing-block max-w-[90%] mx-auto lg:max-w-4xl text-center"
+    >
+      我们在全球关键金融枢纽部署了多个高性能数据中心，包括香港、东京、伦敦和纽约，构建了低延迟、高冗余的全球私有网络。这一网络确保了我们的服务具备极高的可用性和稳定性，系统可用性达到99.99%。
+    </p>
 
+  </div>
   <!-- 对比表格 -->
   <ComparisonTable features={comparisonFeatures} />
 </section>

@@ -238,5 +238,29 @@
     "compressedSize": 145266,
     "compressionRatio": 64.48923916338283,
     "timestamp": "2025-11-03T18:00:25.449Z"
+  },
+  "../../src/assets/technology/earth.png": {
+    "md5": "b6de6f8dc64d27cfa52c2131012f1150",
+    "compressedSize": 173791,
+    "compressionRatio": 66.0457682982344,
+    "timestamp": "2025-11-04T02:53:00.029Z"
+  },
+  "../../src/assets/technology/security3.png": {
+    "md5": "22d77416f211ea431cc23e9c666beaa4",
+    "compressedSize": 2416,
+    "compressionRatio": 67.4217907227616,
+    "timestamp": "2025-11-04T02:53:00.865Z"
+  },
+  "../../src/assets/technology/security2.png": {
+    "md5": "59765325ac99b9e338affaeb121ea799",
+    "compressedSize": 2776,
+    "compressionRatio": 65.46404578253296,
+    "timestamp": "2025-11-04T02:53:01.290Z"
+  },
+  "../../src/assets/technology/security1.png": {
+    "md5": "0cecb9d715d3b6182238be98c69b9b41",
+    "compressedSize": 2732,
+    "compressionRatio": 67.71448830063814,
+    "timestamp": "2025-11-04T02:53:04.948Z"
   }
 }

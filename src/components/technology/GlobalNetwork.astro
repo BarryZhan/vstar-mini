@@ -1,71 +1,57 @@
 ---
-import FeatureCard from '../FeatureCard.astro'
+import { Image } from 'astro:assets'
+import EarthImg from '../../assets/technology/earth.png'
 
 // 技术特点数据
 const features = [
   {
     title: '亚太枢纽',
-    description: '覆盖东亚、东南亚与大洋洲的高速网络',
-    icon: 'globe',
+    description: '香港、东京服务器集群，<15ms极速响应',
   },
   {
-    title: '欧洲枢纽',
-    description: '确保欧洲地区的极速访问与数据合规',
-    icon: 'server',
+    title: '欧洲网络',
+    description: '伦敦、法兰克福数据中心，通过MiFID II合规认证',
   },
   {
     title: '美洲节点',
-    description: '为北美与拉丁美洲用户提供高效服务',
-    icon: 'globe',
+    description: '纽约、温哥华办公室，SWIFT CSP认证基础设施',
   },
   {
-    title: '保护中继',
-    description: '多级容灾，全球数据安全冗余保障',
-    icon: 'shield',
+    title: '中东非洲',
+    description: '迪拜、开罗服务网点，支持伊斯兰账户',
   },
 ]
 ---
 
-<section class="spacing-section">
-  <h2 class="section-title">全球技术网络</h2>
+<section class="section-margin content-container">
+  <h2 class="text-heading-1 mb-3 text-center md:mb-5 lg:mb-8">全球技术网络</h2>
 
   <!-- 说明文字 -->
-  <div class="spacing-block mx-auto max-w-4xl px-2 text-center">
-    <p class="text-body-sm md:text-body-md leading-relaxed">
-      我们在全球范围内部署了先进的云基础设施，通过多地域、多节点的技术架构，实现了超低延迟的数据传输。
-      无论您身处何地，都能享受到流畅的交易体验。我们的全球网络覆盖主要金融市场，确保数据的实时性与准确性。
-    </p>
-  </div>
+  <p
+    class="text-body-sm mb-12 mx-auto max-w-[90%] text-center lg:max-w-4xl"
+  >
+    我们在全球关键金融枢纽部署了多个高性能数据中心，包括香港、东京、伦敦和纽约，构建了低延迟、高冗余的全球私有网络。这一网络确保了我们的服务具备极高的可用性和稳定性，系统可用性达到99.99%。
+  </p>
 
-  <!-- 地球仪图片 -->
-  <div class="mx-auto mb-8 max-w-2xl md:mb-12 lg:mb-16">
-    <div
-      class="md:rounded-image flex aspect-square items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-gray-50 to-gray-100"
-    >
-      <div class="flex h-full w-full items-center justify-center">
-        <!-- 这里可以放置实际的地球仪图片或 3D 可视化 -->
-        <svg
-          class="h-3/4 w-3/4 text-gray-300"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-        >
-          <circle cx="12" cy="12" r="10" stroke-width="0.5"></circle>
-          <path
-            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-            stroke-width="0.5"></path>
-          <path
-            d="M12 2c2.5 0 4.5 4.5 4.5 10s-2 10-4.5 10-4.5-4.5-4.5-10S9.5 2 12 2z"
-            stroke-width="0.5"></path>
-        </svg>
-      </div>
-    </div>
-  </div>
+
+  <Image src={EarthImg} class="mx-auto xl:max-w-[1070px]" alt="" />
 
   <!-- 技术特点卡片 -->
   <div
-    class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4 lg:gap-8"
+    class="grid text-center grid-cols-2 mt-7 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4 lg:gap-8"
   >
-    {features.map((feature) => <FeatureCard {...feature} />)}
+    {features.map((feature) => <div
+      class="lg:max-w-52"
+    >
+      <!-- 标题 -->
+      <h4 class="text-body-lg font-bold lg:mb-2">
+        {feature.title}
+      </h4>
+
+      <!-- 描述 -->
+      <p class="text-body-sm">
+        {feature.description}
+      </p>
+    </div>)}
   </div>
 </section>

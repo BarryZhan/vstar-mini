@@ -13,71 +13,107 @@ export interface Props {
 }
 
 const { features } = Astro.props
+
+// 平台配置
+const platforms = [
+  {
+    key: 'vsTrader',
+    name: 'VS TRADER',
+    highlighted: false,
+    abbr: 'VSTAR',
+  },
+  {
+    key: 'proTrader',
+    name: 'PRD TRADER',
+    highlighted: true,
+    badge: 'PRO TRADER',
+    abbr: 'PRO',
+  },
+  {
+    key: 'webTrader',
+    name: 'WEB TRADER',
+    highlighted: false,
+    abbr: 'WEB',
+  },
+]
 ---
 
-<!-- 横向表格布局 -->
-<div class="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
-  <div class="min-w-[600px] md:min-w-0">
-    <!-- 表头 -->
-    <div
-      class="mb-4 grid grid-cols-[auto,1fr,1fr,1fr] gap-3 md:mb-5 md:gap-4 lg:mb-6 lg:gap-5"
-    >
-      <!-- 空白列 -->
-      <div class="w-24 md:w-28 lg:w-32"></div>
-
-      <!-- VS TRADER -->
-      <div
-        class="rounded-card bg-light-bg p-3 text-center text-dark md:p-4 lg:p-5"
-      >
-        <h4 class="text-body-md md:text-heading-4 font-semibold leading-tight">
-          VS TRADER
-        </h4>
-      </div>
-
-      <!-- PRO TRADER (高亮) -->
-      <div
-        class="rounded-card bg-primary p-3 text-center text-white ring-2 ring-primary ring-offset-2 md:p-4 md:ring-offset-4 lg:p-5"
-      >
-        <h4 class="text-body-md md:text-heading-4 font-semibold leading-tight">
-          PRO TRADER
-        </h4>
-        <span class="text-body-xs mt-1 block opacity-90">推荐</span>
-      </div>
-
-      <!-- WEB TRADER -->
-      <div
-        class="rounded-card bg-light-bg p-3 text-center text-dark md:p-4 lg:p-5"
-      >
-        <h4 class="text-body-md md:text-heading-4 font-semibold leading-tight">
-          WEB TRADER
-        </h4>
-      </div>
-    </div>
-
-    <!-- 表格内容行 -->
-    <div class="space-y-2 md:space-y-3">
+<!-- 竖向对比布局：左侧固定功能列表 + 右侧横向滚动平台卡片 -->
+<div class="text-body-sm flex gap-4 overflow-x-auto px-6 py-10 text-center content-container md:grid md:grid-cols-4">
+  <!-- 左侧功能列表 -->
+  <div class="flex-shrink-0 ">
+    <!-- 空白表头占位 -->
+    <div class="h-17 md:h-19"></div>
+    <!-- 功能名称列表 -->
+    <div>
       {
         features.map((feature, index) => (
           <div
-            class={`grid grid-cols-[auto,1fr,1fr,1fr] items-center gap-3 md:gap-4 lg:gap-5 ${
-              index % 2 === 0 ? '' : ''
-            }`}
+            class="flex h-12 items-center md:h-20"
+            style={
+              index % 2 === 0 ? 'background: rgba(248, 248, 248, 0.74);' : ''
+            }
           >
-            <div class="text-body-sm md:text-body-md w-24 pr-2 font-medium text-dark md:w-28 lg:w-32">
+            <div class="text-body-sm md:text-body-md w-24 font-medium text-dark md:w-32">
               {feature.name}
             </div>
-            {[
-              feature.values.vsTrader,
-              feature.values.proTrader,
-              feature.values.webTrader,
-            ].map((value, index) => (
-              <div class="text-body-sm md:text-body-md h-12 bg-white text-center text-dark">
-                {value}
-              </div>
-            ))}
           </div>
         ))
       }
     </div>
   </div>
+
+
+  {
+    platforms.map((platform) => (
+      <div
+        class={`border-2 w-36 flex-shrink-0 rounded-[6px] lg:rounded-[18px] bg-white py-2 md:w-auto md:py-4 ${
+          platform.highlighted ? 'relative border-[#0A7CFF] md:border-[3px]' : 'border-light-bg'
+        }`}
+        style={{
+          boxShadow: platform.highlighted
+            ? '0 0 0 1px #0A7CFF, 0 4px 12px 0 rgba(10, 124, 255, 0.16), 0 16px 48px 0 rgba(10, 124, 255, 0.16)'
+            : '0 1px 2px 0 rgba(36, 38, 41, 0.08), 0 0 1px 0 rgba(36, 38, 41, 0.24)',
+        }}
+      >
+        {platform.badge && (
+          <div class="absolute -top-[25px] left-1/2 -translate-x-1/2 h-[25px] md:h-[34px] md:-top-[34px] flex items-center justify-center">
+            <svg class="absolute md:hidden" width="107" height="25" viewBox="0 0 107 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21.7767 6C21.7767 2.68629 24.463 0 27.7767 0H57.9515H88.1262C91.4399 0 94.1262 2.68629 94.1262 6V10.366C94.1262 17.9535 100.171 24.1601 107.755 24.3611L113 24.5C113 24.7761 112.776 25 112.5 25H0.499997C0.223854 25 0 24.7761 0 24.5C0 24.2239 0.223858 24 0.5 24H10.8883C16.9018 24 21.7767 19.1251 21.7767 13.1117V6Z" fill="#0A7CFF"/>
+            </svg>
+            <svg class="absolute hidden md:block"  xmlns="http://www.w3.org/2000/svg" width="206" height="34" viewBox="0 0 206 34" fill="none">
+              <path d="M32 14C32 6.26801 38.268 0 46 0H156C163.732 0 170 6.26801 170 14V16.1931C170 23.8493 176.15 30.0854 183.806 30.1917L206 30.5C206 32.433 204.433 34 202.5 34H2.00001C0.895436 34 0 33.1046 0 32C0 30.8954 0.895431 30 2 30H18C25.732 30 32 23.732 32 16V14Z" fill="#0A7CFF"/>
+            </svg>
+            <span class="text-body-[9px] text-white font-bold relative">
+                {platform.badge}
+              </span>
+          </div>
+        )}
+        <div class={`flex h-15 lg:h-24 flex-col justify-center px-2 lg:px-5`}>
+          <div class="flex h-[18px] lg:h-8 lg:px-3 lg:rounded-[6px] lg:text-sm w-max items-center rounded-[3px] bg-[#298DFF1F] px-1 text-[9px] text-[#0A7CFF]">
+            {platform.abbr}
+          </div>
+          <h4 class={`text-xs lg:text-xl mt-[5px] text-left font-semibold`}>
+            {platform.name}
+          </h4>
+        </div>
+        <div>
+          {features.map((feature, index) => (
+            <div
+              class="flex h-12 items-center justify-center md:h-20"
+              style={
+                index % 2 === 0
+                  ? 'background: rgba(248, 248, 248, 0.74);'
+                  : ''
+              }
+            >
+              <div class="text-body-sm md:text-body-md text-center font-medium text-dark">
+                {feature.values[platform.key as keyof typeof feature.values]}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))
+  }
 </div>

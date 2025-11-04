@@ -1,43 +1,49 @@
 ---
-import SecurityCard from '../SecurityCard.astro'
+import IconSecurity1 from '../../assets/technology/security1.png'
+import IconSecurity2 from '../../assets/technology/security2.png'
+import IconSecurity3 from '../../assets/technology/security3.png'
 
-// 安全体系数据
+import AsicProtection from '../compliance/AsicProtection.astro'
 const securityFeatures = [
   {
     title: '用例安全',
     description:
       '多重加密技术保护用户身份信息，确保平台操作安全可信。采用先进的加密算法与身份验证机制，全方位守护您的账户安全。',
-    icon: 'shield' as const,
+    icon: IconSecurity1,
   },
   {
     title: '数据加密',
     description:
       '所有传输数据均采用银行级SSL/TLS加密协议，确保信息在传输过程中的绝对安全。多层加密技术让数据泄露风险降至最低。',
-    icon: 'lock' as const,
+    icon: IconSecurity2,
   },
   {
     title: '识别控制',
     description:
       '采用多因素身份认证系统，包括生物识别、动态令牌等先进技术，为您的账户提供全方位的访问控制与安全防护。',
-    icon: 'fingerprint' as const,
+    icon: IconSecurity3,
   },
 ]
 ---
 
-<section class="mt-12 md:mt-20 lg:mt-28">
-  <h2 class="section-title">安全体系</h2>
+<section class="section-margin content-container">
+  <h2 class="text-heading-1 text-center">安全体系</h2>
 
-  <!-- 说明文字 -->
-  <div class="spacing-block mx-auto max-w-4xl px-2 text-center">
-    <p class="text-body-sm md:text-body-md leading-relaxed">
-      安全是我们最重视的核心价值之一。
-    </p>
-  </div>
+
+  <p class="text-body-md text-center heading-margin">
+    安全是我们最重视的核心价值之一。
+  </p>
 
   <!-- 安全特性卡片 -->
   <div
     class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8"
   >
-    {securityFeatures.map((feature) => <SecurityCard {...feature} />)}
+    {securityFeatures.map((feature) =>
+      <AsicProtection
+        title={feature.title}
+        description={feature.description}
+        icon={feature.icon}
+      />
+    )}
   </div>
 </section>
