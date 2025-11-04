@@ -4,47 +4,49 @@
  *
  * @description 展示公司核心管理团队成员
  */
-
+import { Image } from 'astro:assets'
 import TeamMember from './TeamMember.astro'
+import Avatar1 from '../../assets/about/avatar1.png'
+import Avatar2 from '../../assets/about/avatar2.png'
+import Awards1 from '../../assets/about/awards1.png'
+import Awards2 from '../../assets/about/awards2.png'
+import TeamBg from '../../assets/about/team-bg.png'
+import TeamPCBg from '../../assets/about/team-bg-pc.png'
 
 const teamMembers = [
   {
     name: 'Martin Luke',
     position: '执行董事',
     bio: '拥有超过23年的全球科技企业管理经验。在加入VSTAR之前，他曾担任多家跨国企业的首席技术官，主导了多项大型技术基础设施的构建与升级。在VSTAR，他主要负责全球技术战略的规划与实施。',
-    avatar: '', // 这里需要替换为实际的头像路径
+    avatar: Avatar1,
   },
   {
     name: 'Scott Maves',
     position: '运营总监',
     bio: '资深运营管理专家，在构建符合国际标准的合规体系方面拥有丰富的成功经验。他主导完成了VSTAR在全球多个地区的合规布局与落地，确保了公司全球运营的稳健与高效。',
-    avatar: '', // 这里需要替换为实际的头像路径
+    avatar: Avatar2,
   },
 ]
 ---
 
 <!-- 管理团队区块 -->
 <section
-  class="relative overflow-hidden bg-gradient-to-b from-dark via-dark-900 to-dark py-16 md:py-20 lg:py-28"
+  class="rounded-section relative overflow-hidden bg-gradient-to-b from-dark via-dark-900 to-dark pb-8 pt-16 md:py-20 lg:py-28"
 >
   <div class="content-container">
     <!-- 英文标题 -->
-    <p
-      class="mb-3 text-center text-[20px] font-medium tracking-wider text-light-text/80 md:mb-4 md:text-[24px] lg:text-[28px]"
-    >
-      Management
-    </p>
+    <p class="text-body-md text-center text-primary">Management</p>
 
     <!-- 中文标题 -->
     <h2
-      class="mb-12 text-center text-[36px] font-bold leading-tight text-white md:mb-16 md:text-[56px] lg:mb-20 lg:text-[72px]"
+      class="text-heading-1 mb-12 text-center font-bold text-white md:mb-16 lg:mb-20"
     >
       管理团队
     </h2>
 
     <!-- 团队成员网格 -->
     <div
-      class="mb-16 grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12 lg:mb-20 lg:gap-20"
+      class="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12 lg:mb-20 lg:gap-20"
     >
       {
         teamMembers.map((member) => (
@@ -57,7 +59,33 @@ const teamMembers = [
         ))
       }
     </div>
+    <!-- 行业认可 -->
 
-
+    <div
+      class="relative z-0 mt-14 items-center overflow-hidden rounded-3xl xl:px-20 bg-black pb-8 pt-11 text-white lg:flex lg:h-[253px] lg:py-0"
+    >
+      <Image
+        src={TeamBg}
+        alt=""
+        class="absolute left-0 top-0 -z-[1] w-full lg:hidden"
+      />
+      <Image
+        src={TeamPCBg}
+        alt=""
+        class="absolute left-0 top-0 -z-[1] hidden w-full lg:block"
+      />
+      <div class="px-8">
+        <div class="text-heading-3 mb-4 font-bold text-white lg:mb-6">
+          行业认可
+        </div>
+        <div class="text-body-sm lg:max-w-[430px]">
+          我们凭借卓越的技术实力和严格的公司治理，获得了行业内的广泛认可：
+        </div>
+      </div>
+      <div class="mt-15 grid grid-cols-2 gap-5 px-5 xl:gap-16 lg:ml-auto lg:mt-0">
+        <Image src={Awards1} alt="" class="lg:h-[184px] lg:w-auto" />
+        <Image src={Awards2} alt="" class="lg:h-[184px] lg:w-auto" />
+      </div>
+    </div>
   </div>
 </section>

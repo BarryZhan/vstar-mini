@@ -23,43 +23,121 @@ const partners = [
 
 <!-- 合作伙伴区块 -->
 <section class="bg-gradient-to-b from-white to-gray-50 py-16 md:py-20 lg:py-28">
-  <div class="content-container">
+  <div class="content-container  lg:pb-30">
     <!-- 标题 -->
-    <h2
-      class="mb-6 text-center text-[36px] font-bold leading-tight text-dark md:mb-8 md:text-[56px] lg:mb-10 lg:text-[72px]"
-    >
-      合作伙伴
-    </h2>
-
+    <h2 class="text-heading-1 mb-3 text-center md:mb-5 lg:mb-8">合作伙伴</h2>
     <!-- 副标题 -->
     <p
-      class="mx-auto mb-12 max-w-3xl text-center text-[15px] leading-relaxed text-dark/70 md:mb-14 md:text-[17px] lg:mb-16 lg:text-[19px]"
+      class="text-body-md md:text-body-md spacing-block mx-auto max-w-[90%] text-center lg:max-w-4xl"
     >
       我们与全球顶尖的技术与服务提供商合作，共同构建可靠的技术生态
     </p>
-
     <!-- Logo 网格 -->
+    <!-- 移动端：静态两行布局 -->
+    <div class="left-0 right-0 lg:hidden lg:absolute">
+      <div
+        class="flex flex-col items-center gap-4 lg:flex-row lg:justify-center lg:gap-6"
+      >
+        {
+          [partners.slice(0, 3), partners.slice(3)].map((row) => (
+            <div class="flex justify-center gap-x-1.5 md:gap-x-4 lg:gap-x-6">
+              {row.map((partner) => (
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  class="h-[35px] w-auto object-contain md:h-12 lg:h-[95px]"
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- PC端：无缝滚动 -->
     <div
-      class="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 lg:grid-cols-6"
+      class="left-0 right-0 hidden overflow-hidden lg:absolute lg:block"
+      id="partners-scroll-container"
     >
-      {
-        partners.map((partner) => (
-          <div class="group flex items-center justify-center rounded-xl bg-white p-6 shadow-sm transition-all hover:shadow-md lg:p-7">
-            {partner.logo ? (
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                class="h-10 w-auto object-contain grayscale transition-all group-hover:grayscale-0 md:h-12 lg:h-14"
-                loading="lazy"
-              />
-            ) : (
-              <div class="flex h-10 w-full items-center justify-center md:h-12 lg:h-14">
-                <div class="h-7 w-20 rounded bg-gradient-to-r from-gray-200 to-gray-300" />
+      <div class="flex flex-nowrap gap-x-12 w-max" id="partners-scroll-track">
+        {/* 第一组 Logo - JS 会自动克隆第二组 */}
+        <div class="flex gap-x-12" id="partners-group-original">
+          {
+            partners.map((partner) => (
+              <div class="flex-shrink-0">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  class="h-[95px] w-auto object-contain"
+                  loading="lazy"
+                />
               </div>
-            )}
-          </div>
-        ))
-      }
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  // 无缝滚动实现
+  function initPartnersScroll() {
+    const container = document.getElementById('partners-scroll-container')
+    const track = document.getElementById('partners-scroll-track')
+    const originalGroup = document.getElementById('partners-group-original')
+
+    if (!container || !track || !originalGroup) return
+
+    // 克隆第一组，创建第二组用于无缝循环
+    const clonedGroup = originalGroup.cloneNode(true) as HTMLElement
+    clonedGroup.id = 'partners-group-cloned'
+    track.appendChild(clonedGroup)
+
+    // 滚动速度（像素/秒）
+    const speed = 50
+    let position = 0
+    let animationId: number
+
+    function scroll() {
+      // 获取第一组的宽度（包括 gap）
+      const groupWidth = originalGroup.offsetWidth + 48 // 48px = gap-x-12 (3rem)
+
+      // 更新位置
+      position -= speed / 60 // 60fps
+
+      // 当第一组完全移出视口时，重置位置
+      if (Math.abs(position) >= groupWidth) {
+        position = 0
+      }
+
+      // 应用变换
+      track.style.transform = `translateX(${position}px)`
+
+      animationId = requestAnimationFrame(scroll)
+    }
+
+    // 启动滚动
+    scroll()
+
+    // 鼠标悬停时暂停（可选）
+    container.addEventListener('mouseenter', () => {
+      cancelAnimationFrame(animationId)
+    })
+
+    container.addEventListener('mouseleave', () => {
+      scroll()
+    })
+  }
+
+  // 页面加载后初始化
+  if (typeof window !== 'undefined') {
+    // 确保 DOM 加载完成
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPartnersScroll)
+    } else {
+      initPartnersScroll()
+    }
+  }
+</script>

@@ -24,44 +24,44 @@ const offices = [
   <div class="content-container">
     <!-- 标题 -->
     <h2
-      class="mb-12 text-center text-[36px] font-bold leading-tight text-dark md:mb-14 md:text-[50px] lg:mb-16 lg:text-[62px]"
+      class="text-heading-1  text-center font-bold text-dark heading-margin"
     >
       联盟合作计划
     </h2>
 
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 ">
       <!-- 左侧：办公地址 -->
-      <div class="space-y-5 md:space-y-6">
+      <div class="space-y-5 md:space-y-6 lg:pt-15">
         {
           offices.map((office) => (
-            <div class="rounded-lg border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-5 shadow-sm transition-all hover:shadow-md md:rounded-xl md:p-6 lg:p-7">
-              <div class="mb-4 flex items-center gap-3">
-                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                  <svg
-                    class="h-5 w-5 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 class="text-[17px] font-bold text-dark md:text-[19px] lg:text-[21px]">
+            <div class="p-4 lg:p-7">
+              <div class="mb-4 flex items-center lg:justify-start justify-center gap-1">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 22C12 22 19.5 16 19.5 9.5C19.5 5.35785 16.1421 2 12 2C7.85785 2 4.5 5.35785 4.5 9.5C4.5 16 12 22 12 22Z"
+                    fill="black"
+                    fill-opacity="0.2"
+                  />
+                  <path
+                    d="M12 12.5C13.6568 12.5 15 11.1568 15 9.5C15 7.84315 13.6568 6.5 12 6.5C10.3432 6.5 9 7.84315 9 9.5C9 11.1568 10.3432 12.5 12 12.5Z"
+                    fill="white"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <h3 class="text-body-lg font-bold text-dark">
                   {office.country}
                 </h3>
               </div>
-              <p class="pl-11 text-[13px] leading-relaxed text-dark/70 md:text-[14px] lg:text-[15px]">
+              <p class="text-body-sm text-center lg:text-left text-dark/60">
                 {office.address}
               </p>
             </div>
@@ -71,10 +71,10 @@ const offices = [
 
       <!-- 右侧：联系表单 -->
       <div
-        class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm lg:p-8"
+        class=""
       >
         <h3
-          class="mb-6 text-[24px] font-bold text-dark md:text-[28px] lg:text-[32px]"
+          class="mb-6 heading-margin font-bold text-dark text-heading-2 text-center lg:text-left"
         >
           联系我们
         </h3>
@@ -88,7 +88,7 @@ const offices = [
           <div>
             <label
               for="username"
-              class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+              class="mb-2 block  text-body-md font-medium text-dark"
             >
               姓名*
             </label>
@@ -99,7 +99,7 @@ const offices = [
               required
               minlength="1"
               maxlength="32"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              class="w-full rounded-lg border border-[#E5E9EF]  bg-[#F3F3F3] px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
               placeholder="请输入您的姓名（1-32字符）"
             />
             <p class="mt-1 hidden text-sm text-red-600" id="username-error"></p>
@@ -111,7 +111,7 @@ const offices = [
             <div>
               <label
                 for="email"
-                class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+                class="mb-2 block  text-body-md font-medium text-dark"
               >
                 邮箱*
               </label>
@@ -122,7 +122,7 @@ const offices = [
                 required
                 minlength="1"
                 maxlength="64"
-                class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                class="w-full rounded-lg border bg-[#F3F3F3] border-[#E5E9EF] px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 placeholder="your@email.com"
               />
               <p class="mt-1 hidden text-sm text-red-600" id="email-error"></p>
@@ -132,7 +132,7 @@ const offices = [
             <div>
               <label
                 for="phone"
-                class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+                class="mb-2 block  text-body-md font-medium text-dark"
               >
                 手机号码
               </label>
@@ -141,8 +141,8 @@ const offices = [
                 id="phone"
                 name="phone"
                 maxlength="32"
-                class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                placeholder="+86 138 0000 0000（选填）"
+                class="w-full rounded-lg border border-[#E5E9EF]  bg-[#F3F3F3] px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                placeholder="138 0000 0000（选填）"
               />
               <p class="mt-1 hidden text-sm text-red-600" id="phone-error"></p>
             </div>
@@ -152,9 +152,9 @@ const offices = [
           <div>
             <label
               for="content"
-              class="mb-2 block text-[16px] font-medium text-dark lg:text-[18px]"
+              class="mb-2 block  text-body-md font-medium text-dark"
             >
-              留言* <span class="text-sm text-gray-500">(10-2047字符)</span>
+              留言* <span class="text-sm text-gray-500">(10-2000字符)</span>
             </label>
             <textarea
               id="content"
@@ -163,8 +163,8 @@ const offices = [
               minlength="10"
               maxlength="2047"
               rows="5"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              placeholder="请输入您的留言内容（10-2047字符）"></textarea>
+              class="w-full rounded-lg border border-[#E5E9EF]  bg-[#F3F3F3] px-4 py-3 text-[16px] transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              placeholder="请输入您的留言内容（10-2000字符）"></textarea>
             <p class="mt-1 text-sm text-gray-500">
               <span id="content-count">0</span> / 2047
             </p>

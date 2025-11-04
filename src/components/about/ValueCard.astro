@@ -13,23 +13,24 @@ interface Props {
   description: string
   /** 背景图片（用于底部背景） */
   bgImage: ImageMetadata
+  index: number
 }
 
-const { title, description, bgImage } = Astro.props
+const { title, description, bgImage, index } = Astro.props
 ---
 
-<div class="group relative h-[270px] overflow-hidden rounded-[18px]">
+<div class={`group relative h-[270px] ${index === 2 || index === 3 ? 'lg:h-[283px]' : 'lg:h-[446px]'}  overflow-hidden rounded-[18px] ${index === 1 ? 'lg:w-[41%]' : 'flex-1'}`}>
   <Image
     src={bgImage}
     alt=""
     class="absolute h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
     loading="lazy"
   />
-  <div class="relative p-6">
-    <h3 class="text-body-xl mb-2 font-bold text-light">
+  <div class={`relative p-6 lg:pt-12 lg:pl-12 ${index === 3 ? 'pr-[58%]' : ''}`}>
+    <h3 class={`text-body-xl mb-2 font-bold ${index === 0 ? 'text-black' : 'text-light'}`}>
       {title}
     </h3>
-    <p class="text-body-md text-light-text">
+    <p class={`text-body-md  ${index === 0 ? 'text-black' : 'text-light-text '}`}>
       {description}
     </p>
   </div>

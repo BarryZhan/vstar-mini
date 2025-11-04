@@ -10,9 +10,9 @@ import Button from '../Button.astro'
 <!-- Hero 容器 -->
 <section
   id="hero-section"
-  class="relative overflow-hidden rounded-b-[40px] bg-gradient-to-r from-dark via-dark-900 to-dark pb-20 pt-24 md:rounded-b-[60px] md:pb-28 md:pt-32 lg:rounded-b-[72px] lg:pb-36 lg:pt-48"
+  class="rounded-header section-margin relative overflow-hidden bg-gradient-to-r from-dark via-dark-900 to-dark pb-12 pt-16 md:pb-20 lg:pb-32 lg:pt-36"
 >
-  <div class="content-container">
+  <div class="content-container mt-8 md:mt-12 lg:mt-16">
     <!-- 主标题 -->
     <h1 class="text-heading-hero mb-6 text-center md:mb-8">关于我们</h1>
 
@@ -24,37 +24,15 @@ import Button from '../Button.astro'
     </p>
 
     <!-- 查看详情按钮 -->
-    <div class="mb-14 flex justify-center lg:mb-16">
+    <div class="mb-14 flex justify-center lg:mb-20">
       <Button variant="primary" size="md"> 查看详情 </Button>
     </div>
 
-    <!-- 品牌卡片组 -->
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:gap-7">
+    <!-- 品牌使命卡片 -->
+    <div class="grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-24">
       <!-- 联系我们卡片 -->
-      <div
-        class="bg-white/8 hover:bg-white/12 flex flex-col justify-between rounded-[15px] p-5 backdrop-blur-sm transition-all md:rounded-[20px] md:p-6 lg:rounded-[22px] lg:p-7"
-      >
+      <div class="hidden flex-col justify-between lg:flex">
         <div class="mb-6">
-          <div class="mb-5">
-            <!-- 邮箱图标 -->
-            <div
-              class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10"
-            >
-              <svg
-                class="h-5 w-5 text-white/70"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                ></path>
-              </svg>
-            </div>
-          </div>
           <p
             class="border-white/8 mb-2 border-b pb-4 text-[13px] text-light-text md:text-[14px] lg:text-[15px]"
           >
@@ -63,82 +41,150 @@ import Button from '../Button.astro'
         </div>
         <a
           href="mailto:support@vstar.com"
-          class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-[13px] font-medium text-dark transition-all hover:bg-white/95 hover:shadow-lg md:text-[14px] lg:py-3"
+          class="inline-flex items-center justify-center rounded-4xl bg-white px-12 py-4 lg:px-16 text-body-md w-max font-bold"
         >
           联系我们
         </a>
       </div>
-
-      <!-- 品牌使命卡片 -->
-      <div
-        class="bg-white/8 hover:bg-white/12 rounded-[15px] p-5 backdrop-blur-sm transition-all md:rounded-[20px] md:p-6 lg:rounded-[22px] lg:p-7"
-      >
-        <div class="mb-5">
-          <!-- 使命图标 -->
-          <div
-            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10"
-          >
-            <svg
-              class="h-5 w-5 text-white/70"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
+      {
+        [
+          {
+            name: '品牌使命',
+            desc: '以创新科技，构建更安全、更高效的金融技术基础设施',
+          },
+          {
+            name: '品牌愿景',
+            desc: '成为连接全球市场的、备受信赖的金融科技品牌',
+          },
+        ].map((item, index) => (
+          <div class="">
+            <div class="mb-5">
+              {index === 0 ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="26"
+                  viewBox="0 0 28 26"
+                  fill="none"
+                >
+                  <rect
+                    x="4.36523"
+                    y="4.37891"
+                    width="19.8638"
+                    height="16.8989"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="1"
+                    y="1"
+                    width="5.31804"
+                    height="4.72688"
+                    fill="#F6DA6F"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="1"
+                    y="19.3203"
+                    width="5.31804"
+                    height="4.72688"
+                    fill="#F6DA6F"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="21.6816"
+                    y="1"
+                    width="5.31804"
+                    height="4.72688"
+                    fill="#F6DA6F"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="21.6816"
+                    y="19.3203"
+                    width="5.31804"
+                    height="4.72688"
+                    fill="#F6DA6F"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M1 7.97266H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 10.0195H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 12.0547H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 14.0938H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 16.1289H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 18.1914H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 20.2539H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 22.3164H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 24.3594H3.04878"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M1 26.1019V2.39453L25 26.1019H1Z"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M4.80859 22.8903V10.5977L16.5159 22.8903H4.80859Z"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                </svg>
+              )}
+            </div>
+            <h3 class="text-body-md my-3 font-semibold text-white">
+              {item.name}
+            </h3>
+            <p class="text-body-sm text-light-text">{item.desc}</p>
           </div>
-        </div>
-        <h3
-          class="mb-3 text-[18px] font-semibold text-white md:text-[20px] lg:text-[22px]"
-        >
-          品牌使命
-        </h3>
-        <p
-          class="text-[13px] leading-relaxed text-light-text md:text-[14px] lg:text-[15px]"
-        >
-          以创新科技，构建更安全、更高效的金融技术基础设施
-        </p>
-      </div>
-
-      <!-- 品牌愿景卡片 -->
-      <div
-        class="bg-white/8 hover:bg-white/12 rounded-[15px] p-5 backdrop-blur-sm transition-all md:rounded-[20px] md:p-6 lg:rounded-[22px] lg:p-7"
-      >
-        <div class="mb-5">
-          <!-- 愿景图标 -->
-          <div
-            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10"
-          >
-            <svg
-              class="h-5 w-5 text-white/70"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-        <h3
-          class="mb-3 text-[18px] font-semibold text-white md:text-[20px] lg:text-[22px]"
-        >
-          品牌愿景
-        </h3>
-        <p
-          class="text-[13px] leading-relaxed text-light-text md:text-[14px] lg:text-[15px]"
-        >
-          成为连接全球市场的、备受信赖的金融科技品牌
-        </p>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>

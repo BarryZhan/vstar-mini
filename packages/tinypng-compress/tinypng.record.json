@@ -262,5 +262,29 @@
     "compressedSize": 2732,
     "compressionRatio": 67.71448830063814,
     "timestamp": "2025-11-04T02:53:04.948Z"
+  },
+  "../../src/assets/about/avatar2.png": {
+    "md5": "5d28ee57f61a2c54b572f6f8318ee2fb",
+    "compressedSize": 33283,
+    "compressionRatio": 74.76916779113665,
+    "timestamp": "2025-11-04T10:39:52.232Z"
+  },
+  "../../src/assets/about/avatar1.png": {
+    "md5": "6792f24ec0cca7af61d749e6574c3e90",
+    "compressedSize": 36684,
+    "compressionRatio": 70.36713922210104,
+    "timestamp": "2025-11-04T10:39:52.309Z"
+  },
+  "../../src/assets/about/team-bg-pc.png": {
+    "md5": "0cce8611a6c0ab9330ab2b4b8b01f90d",
+    "compressedSize": 223809,
+    "compressionRatio": 72.71862920890864,
+    "timestamp": "2025-11-04T10:39:56.417Z"
+  },
+  "../../src/assets/about/team-bg.png": {
+    "md5": "1581addf7023c857016d420f23738b7b",
+    "compressedSize": 138703,
+    "compressionRatio": 75.8746343007622,
+    "timestamp": "2025-11-04T10:39:58.964Z"
   }
 }
