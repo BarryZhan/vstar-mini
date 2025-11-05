@@ -21,13 +21,12 @@ const menuItems = [
 ---
 
 <nav
-  id="main-nav"
-  class="fixed left-0 right-0 top-0 z-[100] px-0 py-0 transition-transform duration-300 lg:px-6 lg:py-4 xl:px-12 xl:py-6 2xl:px-20"
+  id="nav-container"
+  class="fixed left-0 right-0 top-0 z-[100] bg-transparent transition-transform duration-300"
 >
   <!-- 导航容器 -->
   <div
-    id="nav-container"
-    class="content-container mx-auto flex h-[68px] items-center justify-between bg-transparent py-[15px] transition-all duration-300 lg:h-auto lg:px-8 lg:py-5 xl:px-12"
+    class="content-container mx-auto flex h-[72px] items-center justify-between py-[15px] transition-all duration-300 lg:px-8 lg:py-5 xl:px-12"
   >
     <!-- Logo -->
     <a
@@ -45,13 +44,13 @@ const menuItems = [
     <!-- PC端导航菜单 -->
     <div
       id="nav-menu"
-      class="mx-auto hidden h-20 items-center gap-8 px-20 lg:flex lg:gap-12 lg:rounded-full lg:bg-white lg:shadow-lg"
+      class="mx-auto hidden h-20 items-center gap-8 px-20 lg:flex lg:gap-12 font-bold"
     >
       {
         menuItems.map((item) => (
           <a
             href={item.href}
-            class="menu-link whitespace-nowrap text-lg font-medium text-black transition-colors hover:text-primary lg:text-xl"
+            class="menu-link whitespace-nowrap text-lg font-medium text-white transition-colors hover:opacity-90 lg:text-xl"
           >
             {item.label}
           </a>
@@ -84,12 +83,8 @@ const menuItems = [
   const menuButton = document.getElementById('menu-button')
   const menuIcon = document.getElementById('menu-icon')
   const closeIcon = document.getElementById('close-icon')
-  const nav = document.getElementById('main-nav')
   const navMenu = document.getElementById('nav-menu')
   const navContainer = document.getElementById('nav-container')
-  const menuLinks = document.querySelectorAll('.menu-link')
-  const logoSvg = document.getElementById('logo-svg')
-  const logoDarkSvg = document.getElementById('logo-svg-dark')
 
   let isMenuOpen = false
 
@@ -145,76 +140,24 @@ const menuItems = [
 
   function updateNavigation() {
     const currentScrollY = window.scrollY
-    const heroSection = document.getElementById('hero-section')
-    const heroHeight = heroSection?.offsetHeight || 0
-
-    // 判断滚动方向
-    const isScrollingDown = currentScrollY > lastScrollY
-    const isScrollingUp = currentScrollY < lastScrollY
-
-    // 判断是否超出 Hero 区域
-    const isOutOfHero = currentScrollY > heroHeight
 
     // 检查是否为移动端（宽度小于 1024px）
     const isMobile = window.innerWidth < 1024
 
-    if (nav) {
-      // 只在PC端应用滚动隐藏逻辑，移动端保持常驻
-      if (!isMobile) {
-        // PC端：滚动方向控制显示/隐藏
-        if (isScrollingDown && currentScrollY > 300) {
-          nav.style.transform = 'translateY(-100%)'
-        } else if (isScrollingUp || currentScrollY <= 100) {
-          nav.style.transform = 'translateY(0)'
-        }
-      } else {
-        // 移动端：始终显示
-        nav.style.transform = 'translateY(0)'
-      }
-    }
-
     // 背景色和文字颜色切换逻辑
     if (navContainer && navMenu) {
-      if (isMobile) {
-        // 移动端：如果菜单打开，保持黑色；否则根据滚动位置变化
-        if (isMenuOpen) {
-          // 菜单打开时，强制保持黑色
-          navContainer.style.backgroundColor = '#020202'
-        } else if (currentScrollY > 50) {
-          // 滚动后变黑色
-          navContainer.style.backgroundColor = '#020202'
-        } else {
-          // 顶部透明
-          navContainer.style.backgroundColor = 'transparent'
-        }
-        // Logo和图标保持白色
-        if (logoSvg) {
-          logoSvg.style.display = 'block'
-          logoDarkSvg!.style.display = 'none'
-        }
-        if (menuIcon) menuIcon.style.color = 'white'
-        if (closeIcon) closeIcon.style.color = 'white'
+      if (isMenuOpen) {
+        // 菜单打开时，强制保持黑色
+        navContainer.style.backgroundColor = '#020202'
+      } else if (currentScrollY > 50) {
+        // 滚动后变黑色
+        navContainer.style.backgroundColor = '#020202'
+        navContainer.style.boxShadow =
+          '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
       } else {
-        // PC端：根据Hero区域切换
-        if (isOutOfHero) {
-          navMenu.style.backgroundColor = '#000000'
-          if (logoSvg) {
-            logoSvg.style.display = 'none'
-            logoDarkSvg!.style.display = 'block'
-          }
-          menuLinks.forEach((link) => {
-            link.style.color = '#ffffff'
-          })
-        } else {
-          navMenu.style.backgroundColor = '#ffffff'
-          if (logoSvg) {
-            logoSvg.style.display = 'block'
-            logoDarkSvg!.style.display = 'none'
-          }
-          menuLinks.forEach((link) => {
-            link.style.color = '#000000'
-          })
-        }
+        // 顶部透明
+        navContainer.style.backgroundColor = 'transparent'
+        navContainer.style.boxShadow = 'none'
       }
     }
 

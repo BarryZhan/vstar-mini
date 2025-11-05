@@ -19,12 +19,12 @@
     /* ==================== 标题字体类 ==================== */
     /* 超大标题 - 用于页面主标题 */
     .text-heading-hero {
-        @apply text-[32px] md:text-[48px] lg:text-[60px] font-bold text-white leading-tight;
+        @apply text-[32px] md:text-[48px] lg:text-[52px] font-bold text-white leading-tight;
     }
 
     /* 一级标题 - 用于区块标题 */
     .text-heading-1 {
-        @apply text-[28px] md:text-[42px] lg:text-[58px] font-medium;
+        @apply text-[28px] md:text-[42px] lg:text-[48px] font-medium;
     }
 
     /* 二级标题 - 用于子区块标题 */
